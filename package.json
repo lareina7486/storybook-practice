@@ -6,11 +6,17 @@
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint",
+    "lint": "eslint .",
     "format": "prettier --write .",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "pnpm lint",
+      "pnpm format"
+    ]
   },
   "dependencies": {
     "@vanilla-extract/css": "^1.18.0",
@@ -36,6 +42,7 @@
     "eslint-config-next": "16.1.6",
     "eslint-plugin-storybook": "^10.2.10",
     "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "playwright": "^1.58.2",
     "prettier": "^3.8.1",
     "storybook": "^10.2.10",
