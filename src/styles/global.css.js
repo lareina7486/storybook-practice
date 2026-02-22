@@ -11,7 +11,7 @@ globalStyle('html, body', {
 });
 
 globalStyle('#root', {
-  minHeight: '100vh',    // 최소 높이
+  minHeight: '100vh', // 최소 높이
 });
 
 globalStyle('button, input, textarea', {
