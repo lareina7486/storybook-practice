@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { chipBase } from './chipBase.css';
+import { chipBase } from './ChipBase.css';
 
 export const chipCategory = style([
   chipBase,

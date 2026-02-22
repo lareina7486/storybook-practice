@@ -1,5 +1,5 @@
 import { styleVariants } from '@vanilla-extract/css';
-import { chipBase } from './chipBase.css';
+import { chipBase } from './ChipBase.css';
 
 export const chipStatus = styleVariants({
   wait: [
