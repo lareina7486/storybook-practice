@@ -82,7 +82,7 @@ export const chipCategory = styleVariants({
       color: '#333',
     },
   ],
-  '공식 문서': [
+  '블로그': [
     chipBase,
     {
       height: 26,
