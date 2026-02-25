@@ -1,33 +1,36 @@
-import { Chip } from '@/components/Chip/Chip';
+import { Chip } from '@/shared/components/Chip/Chip';
 
 export default {
   title: 'Components/Chip',
   component: Chip,
   tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+  },
 };
 
 export const Type = () => (
   <>
-    <Chip type="Next.js" />
-    <Chip type="API" />
+    <Chip type="next" />
+    <Chip type="api" />
     <Chip type="career" />
-    <Chip type="Modern JS" />
-    <Chip type="Web" />
+    <Chip type="modernJs" />
+    <Chip type="web" />
   </>
 );
 
 export const Category = () => (
   <>
-    <Chip category="공식문서" />
-    <Chip category="블로그" />
+    <Chip category="docs" />
+    <Chip category="blog" />
   </>
 );
 
 export const Status = () => (
   <>
-    <Chip status="승인 대기" />
-    <Chip status="신청 거절" />
-    <Chip status="신청 승인" />
-    <Chip status="챌린지 삭제" />
+    <Chip status="wait" />
+    <Chip status="rejected" />
+    <Chip status="approved" />
+    <Chip status="deleted" />
   </>
 );
