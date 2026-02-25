@@ -9,9 +9,11 @@ export default {
   },
 };
 
+// Object 형태로도 가져와보기
+
 export const Type = () => (
   <div style={{display: 'flex', gap: '8px',}}>
-    <Chip type="next" />
+    <Chip type="next"/>
     <Chip type="api" />
     <Chip type="career" />
     <Chip type="modernJs" />
