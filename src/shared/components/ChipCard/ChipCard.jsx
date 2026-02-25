@@ -21,12 +21,7 @@ export const ChipCard = ({ status }) => {
 
   return (
     <div className={chipCard[status]}>
-      <Image
-        src={meta.icon}
-        width={16}
-        height={16}
-        alt={meta.alt}
-      />
+      <Image src={meta.icon} width={16} height={16} alt={meta.alt} />
       <span>{meta.label}</span>
     </div>
   );

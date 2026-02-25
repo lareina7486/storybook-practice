@@ -42,7 +42,7 @@ export const chipType = styleVariants({
     },
   ],
   api: [
-    chipBase,
+      chipBase,
     {
       height: '26px',
       padding: '3px 12px',
