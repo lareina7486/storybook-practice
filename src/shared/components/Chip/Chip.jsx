@@ -20,7 +20,7 @@ const STATUS_LABEL = {
   deleted: '챌린지 삭제',
 };
 
-export function Chip(props) {
+export const Chip = (props) => {
   if (props.type) {
     return (
       <span className={chipType[props.type]}>{TYPE_LABEL[props.type]}</span>

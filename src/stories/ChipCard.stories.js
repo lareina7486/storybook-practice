@@ -10,8 +10,8 @@ export default {
 };
 
 export const Status = () => (
-  <>
-    <ChipCard status="recruit-end" />
-    <ChipCard status="date-end" />
-  </>
+  <div style={{display: 'flex', gap: '8px',}}>
+    <ChipCard status="recruitEnd" />
+    <ChipCard status="dateEnd" />
+  </div>
 );
