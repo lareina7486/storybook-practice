@@ -50,3 +50,9 @@ export const Disabled = () => (
     승인하기
   </Button>
 );
+
+export const Abcd = () => (
+  <Button variant="abcd">
+    승인하기
+  </Button>
+);
