@@ -12,17 +12,23 @@ export const control = styleVariants({
     {
       width: 40,
       height: 40,
-      position: 'absolute',
+      position: 'relative',
       background: '#262626',
       borderRadius: 8,
 
-    //   left: 17,
-    //   top: 12,
+      //   left: 17,
+      //   top: 12,
       color: '#FFC117',
       fontSize: 14,
       fontFamily: pretendard_500,
       fontWeight: '500',
       wordWrap: 'break-word',
+    },
+  ],
+  inactive: [
+    {
+      backgroundColor: 'red',
+      color: '#A3A3A3',
     },
   ],
 });
