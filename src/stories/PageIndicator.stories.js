@@ -9,8 +9,12 @@ export default {
   },
 };
 
-export const Status = () => (
+export const Page = () => (
   <div style={{display: 'flex', gap: '8px',}}>
-    <PageIndicator current={2} />
+    {/* <PageIndicator current={1} />
+    <PageIndicator current={2} /> */}
+    <PageIndicator current={3} />
+    {/* <PageIndicator current={4} />
+    <PageIndicator current={5} /> */}
   </div>
 );
