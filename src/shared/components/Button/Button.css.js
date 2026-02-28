@@ -57,6 +57,11 @@ export const filled = style({
   color: 'black',
 });
 
+export const abcd = style({
+  backgroundColor: 'red',
+  color: 'black',
+});
+
 /* =======================
    ICON
 ======================= */
