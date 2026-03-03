@@ -4,7 +4,19 @@ import arrowRight from '@/shared/icons/ic_arrow_right.svg';
 import { Control } from './Control.jsx';
 import { pageIndicator } from './PageIndicator.css.js';
 
-export const PageIndicator = ({ current, total = 5 }) => {
+export const PageIndicator = ({ current, total, onChange }) => {
+  const handlePrev = () => {
+    if (current > 1) {
+      onChange(current - 1);
+    }
+  }
+
+  const handleNext = () => {
+    if (current < total) {
+      onChange(current + 1);
+    }
+  }
+
   return (
     <div className={pageIndicator}>
       <Image src={arrowLeft} width={40} height={40} alt="이전 페이지" />
