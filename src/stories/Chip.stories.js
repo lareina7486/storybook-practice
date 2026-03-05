@@ -1,4 +1,4 @@
-import { Chip } from '@/shared/components/Chip/Chip';
+import { Chip } from '@/shared/components';
 
 export default {
   title: 'Components/Chip',

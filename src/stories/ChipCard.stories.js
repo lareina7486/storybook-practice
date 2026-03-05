@@ -1,4 +1,4 @@
-import { ChipCard } from '@/shared/components/ChipCard/ChipCard';
+import { ChipCard } from '@/shared/components';
 
 export default {
   title: 'Components/ChipCard',
