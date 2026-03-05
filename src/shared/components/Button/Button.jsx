@@ -1,32 +1,47 @@
-import * as styles from './Button.css.js';
+'use client';
+
 import clsx from 'clsx';
+import * as styles from './Button.css.js';
 
 export function Button({
-  variant = 'solid', // solid | outline | filledTonal | transparent | filled
-  size = 'pc', // pc | mobile
+  variant = 'solid',
+  size = 'pc',
+  status = true,
   icon,
-  iconPosition = 'left', // left | right
+  iconPosition = 'right',
   disabled = false,
   children,
+  className,
   ...props
 }) {
+  const isMobile = size === 'mobile';
+
+  const classes = [
+    styles.base,
+    variant === 'outline' && styles.variant[isMobile ? 'outlineMobile' : 'outline'],
+    variant === 'outlineIcon' && styles.variant.outlineIcon,
+    variant === 'filled' && styles.variant.filled,
+    variant === 'solid' && styles.size[isMobile ? 'mobile' : 'pc'],
+    variant === 'solid' && styles.variant[status ? 'solid' : 'solidInactive'],
+    variant === 'filledTonal' && styles.size[isMobile ? 'mobile' : 'pc'],
+    variant === 'filledTonal' && styles.variant.filledTonal,
+    variant === 'transparent' && styles.variant.transparent,
+    variant === 'transparent' && isMobile && styles.variant.transparentMobile,
+    disabled && styles.disabled,
+    className,
+  ];
+
   return (
     <button
-      className={clsx(
-        styles.base,
-        styles[variant],
-        styles[size],
-        disabled && styles.disabled,
-      )}
+      type="button"
+      className={clsx(classes)}
       disabled={disabled}
       {...props}
     >
       {icon && iconPosition === 'left' && (
         <span className={styles.icon}>{icon}</span>
       )}
-
       {children}
-
       {icon && iconPosition === 'right' && (
         <span className={styles.icon}>{icon}</span>
       )}
