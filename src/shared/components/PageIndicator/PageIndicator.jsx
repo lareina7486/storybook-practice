@@ -1,34 +1,65 @@
-import Image from 'next/image.js';
-import arrowLeft from '@/shared/icons/ic_arrow_left.svg';
-import arrowRight from '@/shared/icons/ic_arrow_right.svg';
+'use client';
+
+import { Icon } from '@/shared/icons/Icon';
 import { Control } from './Control.jsx';
-import { pageIndicator } from './PageIndicator.css.js';
+import * as styles from './PageIndicator.css.js';
+
+const WINDOW_SIZE = 5;
 
 export const PageIndicator = ({ current, total, onChange }) => {
+  const currentWindowIndex = Math.floor((current - 1) / WINDOW_SIZE);
+  const start = currentWindowIndex * WINDOW_SIZE + 1;
+  const end = Math.min(start + WINDOW_SIZE - 1, total);
+  const windowLength = end - start + 1;
+
   const handlePrev = () => {
-    if (current > 1) {
-      onChange(current - 1);
+    if (start > 1) {
+      onChange(start - 1);
     }
-  }
+  };
 
   const handleNext = () => {
-    if (current < total) {
-      onChange(current + 1);
+    if (end < total) {
+      onChange(end + 1);
     }
-  }
+  };
+
+  const canPrev = start > 1;
+  const canNext = end < total;
 
   return (
-    <div className={pageIndicator}>
-      <Image src={arrowLeft} width={40} height={40} alt="이전 페이지" />
-      {Array.from({ length: total }).map((_, i) => {
-        const step = i + 1;
+    <div className={styles.pageIndicator}>
+      <button
+        type="button"
+        className={styles.arrowButton}
+        onClick={handlePrev}
+        disabled={!canPrev}
+        aria-label="이전 페이지"
+      >
+        <Icon name="ic_arrow_left" width={40} height={40} aria-hidden />
+      </button>
+      {Array.from({ length: windowLength }).map((_, i) => {
+        const step = start + i;
         return (
-          <Control key={step} variant="page" selected={step === current}>
+          <Control
+            key={step}
+            variant="page"
+            selected={step === current}
+            onClick={() => onChange(step)}
+          >
             {step}
           </Control>
         );
       })}
-      <Image src={arrowRight} width={40} height={40} alt="이후 페이지" />
+      <button
+        type="button"
+        className={styles.arrowButton}
+        onClick={handleNext}
+        disabled={!canNext}
+        aria-label="다음 페이지"
+      >
+        <Icon name="ic_arrow_right" width={40} height={40} aria-hidden />
+      </button>
     </div>
   );
 };
