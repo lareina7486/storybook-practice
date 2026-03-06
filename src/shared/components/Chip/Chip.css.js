@@ -1,18 +1,9 @@
-import { style, styleVariants, fontFace } from '@vanilla-extract/css';
-import '@fontsource/quantico';
-import '@fontsource/pretendard';
+import { style, styleVariants } from '@vanilla-extract/css';
+import { breakpoint } from '../breakpoints.css.js';
 
-const quantico = fontFace({
-  src: "url(@fontsource/quantico/files/quantico-latin-400-normal.woff2) format('woff2'), url(@fontsource/quantico/files/quantico-latin-400-normal.woff) format('woff')",
-});
-
-const pretendard_500 = fontFace({
-  src: "url(@fontsource/pretendard/files/pretendard-latin-500-normal.woff2) format('woff2')",
-});
-
-const pretendard_600 = fontFace({
-  src: "url(@fontsource/pretendard/files/pretendard-latin-500-normal.woff2) format('woff2')",
-});
+/* next/font로 주입되는 CSS 변수 사용 (Quantico: --font-quantico, Pretendard: --font-pretendard) */
+const fontQuantico = 'var(--font-quantico), sans-serif';
+const fontPretendard = 'var(--font-pretendard), sans-serif';
 
 const chipBase = style({
   display: 'inline-flex',
@@ -22,6 +13,15 @@ const chipBase = style({
 
   whiteSpace: 'nowrap',
   boxSizing: 'border-box',
+
+  '@media': {
+    [breakpoint.sm]: {
+      height: '22px',
+      padding: '3px 8px',
+      borderRadius: '6px',
+      fontSize: 'var(--font-size-2xs)',
+    },
+  },
 });
 
 /* Figma chip-type: px-12 py-3, rounded-8, Quantico Bold 14px #525252 */
@@ -34,10 +34,10 @@ export const chipType = styleVariants({
       borderRadius: '8px',
       backgroundColor: '#79E16A',
       textAlign: 'justify',
-      fontFamily: quantico,
+      fontFamily: fontQuantico,
       color: 'var(--gray-gray600, #525252)',
-      fontSize: '14px',
-      fontWeight: '700',
+      fontSize: 'var(--font-size-sm)',
+      fontWeight: 'var(--font-weight-bold, 700)',
       wordWrap: 'break-word',
     },
   ],
@@ -48,10 +48,10 @@ export const chipType = styleVariants({
       padding: '3px 12px',
       borderRadius: '8px',
       backgroundColor: '#FF905E',
-      fontFamily: quantico,
+      fontFamily: fontQuantico,
       color: 'var(--gray-gray600, #525252)',
-      fontSize: '14px',
-      fontWeight: '700',
+      fontSize: 'var(--font-size-sm)',
+      fontWeight: 'var(--font-weight-bold, 700)',
       wordWrap: 'break-word',
     },
   ],
@@ -62,10 +62,10 @@ export const chipType = styleVariants({
       padding: '3px 12px',
       borderRadius: '8px',
       backgroundColor: '#7EB2EE',
-      fontFamily: quantico,
+      fontFamily: fontQuantico,
       color: 'var(--gray-gray600, #525252)',
-      fontSize: '14px',
-      fontWeight: '700',
+      fontSize: 'var(--font-size-sm)',
+      fontWeight: 'var(--font-weight-bold, 700)',
       wordWrap: 'break-word',
     },
   ],
@@ -76,10 +76,10 @@ export const chipType = styleVariants({
       padding: '3px 12px',
       borderRadius: '8px',
       backgroundColor: '#F66E6B',
-      fontFamily: quantico,
+      fontFamily: fontQuantico,
       color: 'var(--gray-gray600, #525252)',
-      fontSize: '14px',
-      fontWeight: '700',
+      fontSize: 'var(--font-size-sm)',
+      fontWeight: 'var(--font-weight-bold, 700)',
       wordWrap: 'break-word',
     },
   ],
@@ -90,10 +90,10 @@ export const chipType = styleVariants({
       padding: '3px 12px',
       borderRadius: '8px',
       backgroundColor: '#F7EA5D',
-      fontFamily: quantico,
+      fontFamily: fontQuantico,
       color: 'var(--gray-gray600, #525252)',
-      fontSize: '14px',
-      fontWeight: '700',
+      fontSize: 'var(--font-size-sm)',
+      fontWeight: 'var(--font-weight-bold, 700)',
       wordWrap: 'break-word',
     },
   ],
@@ -110,9 +110,9 @@ export const chipCategory = styleVariants({
       backgroundColor: 'var(--white, #ffffff)',
       border: '1px solid var(--gray-gray300, #D4D4D4)',
       color: 'var(--gray-gray600, #525252)',
-      fontSize: '13px',
-      fontFamily: pretendard_500,
-      fontWeight: '500',
+      fontSize: 'var(--font-size-xs)',
+      fontFamily: fontPretendard,
+      fontWeight: 'var(--font-weight-medium, 500)',
       wordWrap: 'break-word',
     },
   ],
@@ -127,9 +127,9 @@ export const chipStatus = styleVariants({
       borderRadius: '4px',
       backgroundColor: '#FFFDE7',
       color: '#F2BC00',
-      fontSize: '13px',
-      fontFamily: pretendard_600,
-      fontWeight: '600',
+      fontSize: 'var(--font-size-xs)',
+      fontFamily: fontPretendard,
+      fontWeight: 'var(--font-weight-semibold, 600)',
       wordWrap: 'break-word',
     },
   ],
@@ -141,9 +141,9 @@ export const chipStatus = styleVariants({
       borderRadius: '4px',
       backgroundColor: '#FFF0F0',
       color: '#E54946',
-      fontSize: '13px',
-      fontFamily: pretendard_600,
-      fontWeight: '600',
+      fontSize: 'var(--font-size-xs)',
+      fontFamily: fontPretendard,
+      fontWeight: 'var(--font-weight-semibold, 600)',
       wordWrap: 'break-word',
     },
   ],
@@ -155,9 +155,9 @@ export const chipStatus = styleVariants({
       borderRadius: '4px',
       backgroundColor: '#DFF0FF',
       color: '#4095DE',
-      fontSize: '13px',
-      fontFamily: pretendard_600,
-      fontWeight: '600',
+      fontSize: 'var(--font-size-xs)',
+      fontFamily: fontPretendard,
+      fontWeight: 'var(--font-weight-semibold, 600)',
       wordWrap: 'break-word',
     },
   ],
@@ -169,9 +169,9 @@ export const chipStatus = styleVariants({
       borderRadius: '4px',
       backgroundColor: 'var(--gray-gray200, #E5E5E5)',
       color: 'var(--gray-gray500, #737373)',
-      fontSize: '13px',
-      fontFamily: pretendard_600,
-      fontWeight: '600',
+      fontSize: 'var(--font-size-xs)',
+      fontFamily: fontPretendard,
+      fontWeight: 'var(--font-weight-semibold, 600)',
       wordWrap: 'break-word',
     },
   ],

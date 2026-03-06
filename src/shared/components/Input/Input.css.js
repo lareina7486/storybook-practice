@@ -10,7 +10,7 @@ export const inputRoot = style({
 export const label = style({
   fontFamily:
     'var(--font-pretendard), system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
-  fontSize: '14px',
+  fontSize: 'var(--font-size-sm)',
   fontWeight: 500,
   lineHeight: 'normal',
   color: 'var(--gray-gray900, #171717)',
@@ -47,7 +47,7 @@ export const input = style({
   background: 'transparent',
   fontFamily:
     'var(--font-pretendard), system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
-  fontSize: '16px',
+  fontSize: 'var(--font-size-base)',
   fontWeight: 400,
   lineHeight: 'normal',
   color: 'var(--gray-gray900, #171717)',
@@ -73,7 +73,7 @@ const helperTextBase = style({
   marginLeft: '8px',
   fontFamily:
     'var(--font-pretendard), system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
-  fontSize: '12px',
+  fontSize: 'var(--font-size-2xs)',
   lineHeight: '16px',
   color: 'var(--gray-gray600, #525252)',
 });

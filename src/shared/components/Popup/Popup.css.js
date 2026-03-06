@@ -46,7 +46,7 @@ export const message = style({
   justifyContent: 'center',
   marginBottom: '24px',
   fontFamily: 'var(--font-pretendard), sans-serif',
-  fontSize: '16px',
+  fontSize: 'var(--font-size-base)',
   fontWeight: 500,
   color: 'var(--gray-gray800, #262626)',
   textAlign: 'center',
@@ -65,7 +65,7 @@ export const confirmButton = style({
   color: 'var(--white, #ffffff)',
   border: 'none',
   fontFamily: 'var(--font-pretendard), sans-serif',
-  fontSize: '16px',
+  fontSize: 'var(--font-size-base)',
   fontWeight: 600,
   cursor: 'pointer',
 });

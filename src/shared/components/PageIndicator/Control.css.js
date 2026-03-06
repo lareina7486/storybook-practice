@@ -11,7 +11,7 @@ const base = {
   padding: 0,
   cursor: 'pointer',
   fontFamily: 'var(--font-pretendard), sans-serif',
-  fontSize: '14px',
+  fontSize: 'var(--font-size-sm)',
   fontWeight: 500,
   lineHeight: 'normal',
   boxSizing: 'border-box',

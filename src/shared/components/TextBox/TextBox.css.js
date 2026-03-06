@@ -12,7 +12,7 @@ const textareaBase = style({
   border: '1px solid var(--gray-gray200, #E5E5E5)',
   borderRadius: '12px',
   fontFamily: 'var(--font-pretendard), sans-serif',
-  fontSize: '16px',
+  fontSize: 'var(--font-size-base)',
   fontWeight: 500,
   lineHeight: 'normal',
   color: 'var(--gray-gray900, #171717)',

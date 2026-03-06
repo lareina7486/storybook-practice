@@ -162,7 +162,7 @@ export const loginButton = styleVariants({
     loginButtonBase,
     {
       height: '40px',
-      fontSize: '16px',
+      fontSize: 'var(--font-size-base)',
       borderRadius: '12px',
     },
   ],
@@ -170,7 +170,7 @@ export const loginButton = styleVariants({
     loginButtonBase,
     {
       height: '32px',
-      fontSize: '14px',
+      fontSize: 'var(--font-size-sm)',
       borderRadius: '10px',
     },
   ],

@@ -32,7 +32,7 @@ export const input = style({
   outline: 'none',
   background: 'transparent',
   fontFamily: 'var(--font-pretendard), sans-serif',
-  fontSize: '16px',
+  fontSize: 'var(--font-size-base)',
   fontWeight: 400,
   color: 'var(--gray-gray900, #171717)',
   selectors: {

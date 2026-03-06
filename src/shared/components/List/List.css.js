@@ -18,7 +18,7 @@ export const badge = style({
   backgroundColor: 'var(--gray-gray800, #262626)',
   borderRadius: '16px',
   fontFamily: 'var(--font-pretendard), sans-serif',
-  fontSize: '14px',
+  fontSize: 'var(--font-size-sm)',
   fontWeight: 500,
   color: 'var(--brand-yellow, #FFC117)',
   flexShrink: 0,
@@ -44,14 +44,14 @@ export const info = style({
 
 export const name = style({
   fontFamily: 'var(--font-pretendard), sans-serif',
-  fontSize: '14px',
+  fontSize: 'var(--font-size-sm)',
   fontWeight: 500,
   color: 'var(--gray-gray800, #262626)',
 });
 
 export const role = style({
   fontFamily: 'var(--font-pretendard), sans-serif',
-  fontSize: '12px',
+  fontSize: 'var(--font-size-2xs)',
   fontWeight: 500,
   color: 'var(--gray-gray500, #737373)',
 });
@@ -68,7 +68,7 @@ export const likeCount = style({
   alignItems: 'center',
   gap: '4px',
   fontFamily: 'var(--font-pretendard), sans-serif',
-  fontSize: '14px',
+  fontSize: 'var(--font-size-sm)',
   fontWeight: 500,
   color: 'var(--gray-gray500, #737373)',
   background: 'none',
@@ -94,7 +94,7 @@ export const workLink = style({
   alignItems: 'center',
   gap: '2px',
   fontFamily: 'var(--font-pretendard), sans-serif',
-  fontSize: '12px',
+  fontSize: 'var(--font-size-2xs)',
   fontWeight: 500,
   color: 'var(--gray-gray800, #262626)',
   background: 'none',

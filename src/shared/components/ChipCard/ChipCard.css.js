@@ -17,7 +17,7 @@ const chipCardBase = style({
   padding: '8px 12px',
   borderRadius: '24px',
   textAlign: 'justify',
-  fontSize: '13px',
+  fontSize: 'var(--font-size-xs)',
   fontFamily: pretendard_500,
   fontWeight: '500',
   wordWrap: 'break-word',

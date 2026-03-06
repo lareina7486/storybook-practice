@@ -54,7 +54,7 @@ export const chipsRow = style({
 });
 
 export const title = style({
-  fontSize: '22px',
+  fontSize: 'var(--font-size-xl)',
   fontWeight: 600,
   lineHeight: 'normal',
   color: 'var(--gray-gray700, #404040)',
@@ -95,7 +95,7 @@ export const metaItem = style({
   display: 'flex',
   alignItems: 'center',
   gap: '4px',
-  fontSize: '13px',
+  fontSize: 'var(--font-size-xs)',
   fontWeight: 400,
   color: 'var(--gray-gray600, #525252)',
 });
