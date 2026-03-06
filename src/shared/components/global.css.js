@@ -16,7 +16,7 @@ globalStyle('html', {
 globalStyle('body', {
   fontFamily:
     'var(--font-pretendard), Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif',
-  fontSize: '16px',
+  fontSize: 'var(--font-size-base)',
   color: 'var(--gray-gray800, #262626)',
   backgroundColor: 'var(--white, #ffffff)',
   WebkitFontSmoothing: 'antialiased',

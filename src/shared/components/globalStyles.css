@@ -23,12 +23,16 @@
   --font-weight-bold: 700;
   --font-weight-medium: 500;
   --font-weight-regular: 400;
-  --font-size-26: 34.67px;
-  --font-size-18: 24px;
-  --font-size-16: 21.33px;
-  --font-size-14: 18.67px;
-  --font-size-12: 16px;
+  --font-size-xxl: 24px;
+  --font-size-xl: 22px;
+  --font-size-lg: 20px;
+  --font-size-md: 18px;
+  --font-size-base: 16px;
+  --font-size-sm: 14px;
+  --font-size-xs: 13px;
+  --font-size-2xs: 12px;
   --line-height-tight: 1;
+  --line-height-normal: 1.5;
 }
 
 /* ========== Reset ========== */

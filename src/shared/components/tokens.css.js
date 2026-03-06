@@ -32,20 +32,24 @@ globalStyle(':root', {
 
   // Typography (Figma font system)
   // font-family는 next/font 변수(--font-pretendard)를 통해 적용
-  
-  // fontSize: 'var(--font-size-16)',
+
+  // fontSize: 'var(--font-size-base)',
   // fontWeight: 'var(--font-weight-bold)',
   // lineHeight: 'var(--line-height-tight)',
   '--font-weight-bold': '700',
+  '--font-weight-semibold': '600',
   '--font-weight-medium': '500',
   '--font-weight-regular': '400',
 
-  // 26pt, 18pt, 16pt, 14pt, 12pt → px (1pt ≒ 1.333px)
-  '--font-size-26': '34.67px',
-  '--font-size-18': '24px',
-  '--font-size-16': '21.33px',
-  '--font-size-14': '18.67px',
-  '--font-size-12': '16px',
+  '--font-size-xxl': '24px',
+  '--font-size-xl': '22px',
+  '--font-size-lg': '20px',
+  '--font-size-md': '18px',
+  '--font-size-base': '16px',
+  '--font-size-sm': '14px',
+  '--font-size-xs': '13px',
+  '--font-size-2xs': '12px',
 
   '--line-height-tight': '1',
+  '--line-height-normal': '1.5',
 });
