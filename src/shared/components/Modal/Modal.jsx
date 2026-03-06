@@ -9,16 +9,14 @@ import * as styles from './Modal.css.js';
 export function Modal({
   open,
   onClose,
-  size = 'small', // 'small' | 'large'
-  variant = 'dialog', // 'dialog' | 'form'
-  // dialog
+  size = 'small',
+  variant = 'dialog',
   icon,
   message,
   primaryLabel = '네',
   secondaryLabel = '아니오',
   onPrimary,
   onSecondary,
-  // form
   title: titleProp,
   submitLabel = '전송',
   onSubmit,

@@ -1,4 +1,5 @@
 import { style, styleVariants } from '@vanilla-extract/css';
+import { breakpoint } from '../breakpoints.css.js';
 
 /**
  * Figma component 4711-52320 기준 Button 스타일
@@ -29,21 +30,21 @@ export const size = styleVariants({
   pc: {
     height: '48px',
     padding: '0 20px',
-    fontSize: '16px',
+    fontSize: 'var(--font-size-base)',
     fontWeight: 600,
     borderRadius: '12px',
   },
   pcMedium: {
     height: '40px',
     padding: '0 20px',
-    fontSize: '16px',
+    fontSize: 'var(--font-size-base)',
     fontWeight: 600,
     borderRadius: '12px',
   },
   mobile: {
     height: '32px',
     padding: '0 16px',
-    fontSize: '14px',
+    fontSize: 'var(--font-size-sm)',
     fontWeight: 600,
     borderRadius: '10px',
   },
@@ -85,7 +86,7 @@ export const variant = styleVariants({
     backgroundColor: 'var(--white, #ffffff)',
     border: '1px solid var(--gray-gray800, #262626)',
     color: 'var(--gray-gray800, #262626)',
-    fontSize: '16px',
+    fontSize: 'var(--font-size-base)',
     fontWeight: 600,
     borderRadius: '12px',
     selectors: {
@@ -100,26 +101,11 @@ export const variant = styleVariants({
         backgroundColor: 'var(--gray-gray200, #E5E5E5)',
       },
     },
-  },
-  outlineMobile: {
-    height: '32px',
-    padding: '2px 16px 3px',
-    backgroundColor: 'var(--white, #ffffff)',
-    border: '1px solid var(--gray-gray800, #262626)',
-    color: 'var(--gray-gray800, #262626)',
-    fontSize: '14px',
-    fontWeight: 600,
-    borderRadius: '10px',
-    selectors: {
-      '&:hover:not(:disabled)': {
-        backgroundColor: 'var(--gray-gray50, #FAFAFA)',
-        boxShadow: '0 2px 6px rgba(0,0,0,0.06)',
-      },
-      '&:focus-visible': {
-        boxShadow: '0 0 0 3px rgba(38, 38, 38, 0.25)',
-      },
-      '&:active:not(:disabled)': {
-        backgroundColor: 'var(--gray-gray200, #E5E5E5)',
+    '@media': {
+      [breakpoint.sm]: {
+        height: '32px',
+        fontSize: 'var(--font-size-sm)',
+        borderRadius: '10px',
       },
     },
   },
@@ -145,7 +131,7 @@ export const variant = styleVariants({
     borderRadius: '12px',
     backgroundColor: 'rgba(246, 248, 250, 0.5)',
     color: 'var(--gray-gray700, #404040)',
-    fontSize: '16px',
+    fontSize: 'var(--font-size-base)',
     fontWeight: 700,
     selectors: {
       '&:hover:not(:disabled)': {
@@ -159,10 +145,12 @@ export const variant = styleVariants({
         backgroundColor: 'rgba(214, 218, 222, 0.9)',
       },
     },
-  },
-  transparentMobile: {
-    fontSize: '14px',
-    borderRadius: '10px',
+    '@media': {
+      [breakpoint.sm]: {
+        fontSize: 'var(--font-size-sm)',
+        borderRadius: '10px',
+      },
+    },
   },
   filled: {
     height: '40px',
@@ -170,7 +158,7 @@ export const variant = styleVariants({
     backgroundColor: 'var(--brand-yellow, #FFC117)',
     border: '2px solid var(--gray-gray800, #262626)',
     color: 'var(--gray-gray800, #262626)',
-    fontSize: '14px',
+    fontSize: 'var(--font-size-sm)',
     fontWeight: 700,
     borderRadius: '12px',
     selectors: {
@@ -193,7 +181,7 @@ export const variant = styleVariants({
     backgroundColor: 'var(--white, #ffffff)',
     border: '1px solid var(--gray-gray800, #262626)',
     color: 'var(--gray-gray800, #262626)',
-    fontSize: '14px',
+    fontSize: 'var(--font-size-sm)',
     fontWeight: 700,
     borderRadius: '30.5px',
     selectors: {

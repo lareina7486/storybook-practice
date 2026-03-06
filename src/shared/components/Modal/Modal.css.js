@@ -49,7 +49,7 @@ export const header = style({
 
 export const title = style({
   margin: 0,
-  fontSize: '18px',
+  fontSize: 'var(--font-size-md)',
   fontWeight: 700,
   lineHeight: '26px',
   color: 'var(--gray-gray800, #262626)',
@@ -83,7 +83,7 @@ export const body = styleVariants({
 
 export const message = style({
   margin: 0,
-  fontSize: '16px',
+  fontSize: 'var(--font-size-base)',
   fontWeight: 500,
   lineHeight: 'normal',
   color: 'var(--gray-gray800, #262626)',
@@ -113,7 +113,7 @@ export const formContent = style({
 });
 
 export const formLabel = style({
-  fontSize: '16px',
+  fontSize: 'var(--font-size-base)',
   fontWeight: 400,
   color: 'var(--gray-gray900, #171717)',
   lineHeight: '26px',
@@ -127,7 +127,7 @@ export const textarea = style({
   border: '1px solid var(--gray-gray300, #D4D4D4)',
   backgroundColor: 'var(--white, #ffffff)',
   fontFamily: 'var(--font-pretendard), sans-serif',
-  fontSize: '16px',
+  fontSize: 'var(--font-size-base)',
   lineHeight: '26px',
   color: 'var(--gray-gray900, #171717)',
   boxSizing: 'border-box',
@@ -151,7 +151,7 @@ export const submitButton = style({
   color: 'var(--white, #ffffff)',
   border: 'none',
   fontFamily: 'var(--font-pretendard), sans-serif',
-  fontSize: '16px',
+  fontSize: 'var(--font-size-base)',
   fontWeight: 600,
   cursor: 'pointer',
 });

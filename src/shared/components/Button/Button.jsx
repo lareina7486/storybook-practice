@@ -18,7 +18,7 @@ export function Button({
 
   const classes = [
     styles.base,
-    variant === 'outline' && styles.variant[isMobile ? 'outlineMobile' : 'outline'],
+    variant === 'outline' && styles.variant.outline,
     variant === 'outlineIcon' && styles.variant.outlineIcon,
     variant === 'filled' && styles.variant.filled,
     variant === 'solid' && styles.size[isMobile ? 'mobile' : 'pc'],
@@ -26,7 +26,6 @@ export function Button({
     variant === 'filledTonal' && styles.size[isMobile ? 'mobile' : 'pc'],
     variant === 'filledTonal' && styles.variant.filledTonal,
     variant === 'transparent' && styles.variant.transparent,
-    variant === 'transparent' && isMobile && styles.variant.transparentMobile,
     disabled && styles.disabled,
     className,
   ];
