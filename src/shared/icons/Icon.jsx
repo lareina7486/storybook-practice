@@ -3,7 +3,7 @@ import { iconPaths } from './iconPaths.js';
 
 // 공통 Icon 컴포넌트
 // 사용 예시:
-// <Icon name="ic_search" width={24} height={24} />
+// <Icon name="search" width={24} height={24} />
 
 export const Icon = ({ name, alt, width = 24, height = 24, ...rest }) => {
   const src = iconPaths[name];

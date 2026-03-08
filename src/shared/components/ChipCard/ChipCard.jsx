@@ -1,7 +1,7 @@
 import Image from 'next/image.js';
 import { chipCard, chipCardLabel } from './ChipCard.css.js';
-import person from '@/shared/icons/ic_person.svg';
-import deadline from '@/shared/icons/ic_deadline.svg';
+import person from '@/shared/icons/person.svg';
+import deadline from '@/shared/icons/deadline.svg';
 
 const CHIP_STATUS = {
   recruitEnd: {

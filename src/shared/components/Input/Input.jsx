@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import clsx from 'clsx';
 import {
   field,
   helperText,
@@ -18,6 +19,7 @@ export const Input = ({
   onChange,
   placeholder,
   showPasswordToggle = false,
+  className,
   ...rest
 }) => {
   const [visible, setVisible] = useState(false);
@@ -27,7 +29,7 @@ export const Input = ({
     isPassword && showPasswordToggle ? (visible ? 'text' : 'password') : type;
 
   return (
-    <div className={inputRoot}>
+    <div className={clsx(inputRoot, className)}>
       {label && <label className={labelStyle}>{label}</label>}
       <div className={field[error ? 'error' : 'default']}>
         <input
@@ -40,7 +42,7 @@ export const Input = ({
         />
         {/* {type === 'date' && (
           <Icon
-            name="icon_calendar"
+            name="calendar"
             width={32}
             height={32}
             aria-hidden="true"

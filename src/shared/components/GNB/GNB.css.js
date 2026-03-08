@@ -4,7 +4,7 @@ import { breakpoint } from '../breakpoints.css.js';
 
 /**
  * Figma GNB 4711-52571
- * 미디어 쿼리: small(~767px) | large(768px~)
+ * 미디어 쿼리: small(~767px) 좌우 16 | medium(768px~) 좌우 24 | large(1024px~) 좌우 360
  * status: guest | member | admin
  * 로고 폰트: next/font --font-quantico 사용
  */
@@ -15,14 +15,20 @@ export const gnb = style({
   justifyContent: 'space-between',
   width: '100%',
   minHeight: '56px',
-  padding: `0 ${vars.space.lg}`,
+  paddingLeft: vars.space.lg,
+  paddingRight: vars.space.lg,
   backgroundColor: vars.color.white,
   borderBottom: `1px solid ${vars.color.gray[100]}`,
   boxSizing: 'border-box',
   '@media': {
     [breakpoint.md]: {
       minHeight: '60px',
-      padding: `0 ${vars.space.xl}`,
+      paddingLeft: vars.space.xl,
+      paddingRight: vars.space.xl,
+    },
+    [breakpoint.lg]: {
+      paddingLeft: '360px',
+      paddingRight: '360px',
     },
   },
 });

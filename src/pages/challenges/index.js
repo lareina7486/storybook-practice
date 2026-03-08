@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import {
   GNB,
   Button,
@@ -78,32 +79,28 @@ export default function ChallengesPage() {
 
   return (
     <div className={styles.page}>
-      <GNB
-        status="guest"
-        logoHref="/"
-        logoText="Docthru"
-        onLogin={() => {}}
-      />
+      <GNB status="guest" />
       <main className={styles.main}>
         <header className={styles.header}>
           <h1 className={styles.title}>챌린지 목록</h1>
           <Button
+            asChild
             variant="solid"
-            icon={<Icon name="icon_plus" width={24} height={24} />}
+            icon={<Icon name="plus" width={24} height={24} />}
             iconPosition="right"
-            onClick={() => {}}
           >
-            챌린지 만들기
+            <Link href="/challenges/new">신규 챌린지 신청</Link>
           </Button>
         </header>
 
         <div className={styles.toolbar}>
           <Sort
-            label="승인 대기"
+            label="필터"
             active={sortActive}
             onClick={() => setSortActive((prev) => !prev)}
           />
           <Search
+            className={styles.searchField}
             placeholder="챌린지 이름을 검색해보세요"
             value={searchValue}
             onChange={setSearchValue}

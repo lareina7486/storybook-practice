@@ -66,7 +66,9 @@ export function Card({
     personText =
       personText ??
       (study.maxParticipants != null && study.currentParticipants != null
-        ? `${study.currentParticipants}/${study.maxParticipants} 참여 완료`
+        ? study.currentParticipants >= study.maxParticipants
+          ? `${study.currentParticipants}/${study.maxParticipants} 참여 완료`
+          : `${study.currentParticipants}/${study.maxParticipants} 참여중`
         : '');
     showCtaResolved = study.isParticipating === true;
   }
@@ -77,14 +79,14 @@ export function Card({
         <div className={styles.titleBlock}>
           {status != null && <ChipCard status={status} />}
           {showEditMenu && (
-            <button
+            <Button
               type="button"
               className={styles.editButton}
               onClick={onEditClick}
               aria-label="더보기 메뉴"
             >
-              <Icon name="Meatballs_menu" width={24} height={24} aria-hidden />
-            </button>
+              <Icon name="meatballs_menu" width={24} height={24} aria-hidden />
+            </Button>
           )}
           {title != null && title !== '' && (
             <h2 className={styles.title}>{title}</h2>
@@ -103,20 +105,20 @@ export function Card({
           <div className={styles.metaLeft}>
             {deadlineText && (
               <span className={styles.metaItem}>
-                <Icon name="ic_deadline" width={24} height={24} aria-hidden />
+                <Icon name="deadline" width={24} height={24} aria-hidden />
                 {deadlineText}
               </span>
             )}
             {personText && (
               <span className={styles.metaItem}>
-                <Icon name="ic_person" width={24} height={24} aria-hidden />
+                <Icon name="person" width={24} height={24} aria-hidden />
                 {personText}
               </span>
             )}
           </div>
           {showCtaResolved && (
             <Button
-              icon={<Icon height={24} name="icon_arrow_right" width={24} />}
+              icon={<Icon height={24} name="arrow_right" width={24} />}
               iconPosition="right"
               status
               variant="outlineIcon"

@@ -1,7 +1,5 @@
 'use client';
 
-import { Children, cloneElement, isValidElement } from 'react';
-import Link from 'next/link';
 import clsx from 'clsx';
 import * as styles from './Button.css.js';
 
@@ -23,34 +21,10 @@ export function Button({
     variant === 'solid' && styles.variant[status ? 'solid' : 'solidInactive'],
     variant === 'filledTonal' && styles.variant.filledTonal,
     variant === 'transparent' && styles.variant.transparent,
+    variant === 'secondary' && styles.variant.secondary,
     disabled && styles.disabled,
     className,
   ];
-
-  const content = (
-    <>
-      {icon && iconPosition === 'left' && (
-        <span className={styles.icon}>{icon}</span>
-      )}
-      {children}
-      {icon && iconPosition === 'right' && (
-        <span className={styles.icon}>{icon}</span>
-      )}
-    </>
-  );
-
-  const child = Children.only(children);
-  const isLinkChild = isValidElement(child) && child.type === Link;
-
-  if (isLinkChild) {
-    return (
-      <span className={clsx(classes)} aria-disabled={disabled}>
-        {cloneElement(child, {
-          className: clsx(styles.linkInner, child.props.className),
-        })}
-      </span>
-    );
-  }
 
   return (
     <button
@@ -59,7 +33,13 @@ export function Button({
       disabled={disabled}
       {...props}
     >
-      {content}
+      {icon && iconPosition === 'left' && (
+        <span className={styles.icon}>{icon}</span>
+      )}
+      {children}
+      {icon && iconPosition === 'right' && (
+        <span className={styles.icon}>{icon}</span>
+      )}
     </button>
   );
 }

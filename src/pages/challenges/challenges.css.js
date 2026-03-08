@@ -48,8 +48,14 @@ export const title = style({
 export const toolbar = style({
   display: 'flex',
   alignItems: 'center',
-  gap: vars.space.md,
+  gap: 12,
   marginBottom: 20,
+});
+
+export const searchField = style({
+  flex: 1,
+  minWidth: 0,
+  maxWidth: 'none',
 });
 
 export const cardList = style({

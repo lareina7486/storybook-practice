@@ -30,24 +30,17 @@ export const MemberLogin = (args) => <GNB {...args} status="member" />;
 /** 관리자: 로고 + 챌린지 관리/챌린지 목록 탭 + 관리자 프로필 */
 export const Admin = (args) => <GNB {...args} status="admin" />;
 
-/** medium 뷰포트 */
-export const SmallViewport = (args) => (
-  <div style={{ maxWidth: 375, margin: '0 auto' }}>
-    <GNB {...args} status="guest" onLogin={() => {}} />
-  </div>
-);
-
 /** 좁은 뷰포트에서 small 스타일 적용 (미디어 쿼리) */
 export const SmallViewport = (args) => (
   <div style={{ maxWidth: 375, margin: '0 auto' }}>
-    <GNB {...args} status="guest" onLogin={() => {}} />
+    <GNB {...args} status="guest" />
   </div>
 );
 
 /** 모든 상태 한눈에 */
 export const AllStatuses = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
-    <GNB status="guest" onLogin={() => console.log('로그인')} />
+    <GNB status="guest" />
     <div style={{ padding: 16, background: '#f5f5f5' }} />
     <GNB status="member" />
     <div style={{ padding: 16, background: '#f5f5f5' }} />

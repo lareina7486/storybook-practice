@@ -50,33 +50,19 @@ export const heroLogo = style({
 
 export const heroHeadline = style({
   margin: 0,
+  marginTop: '15.65px',
   fontFamily: 'var(--font-pretendard), sans-serif',
   fontWeight: vars.fontWeight.semibold,
   fontSize: vars.fontSize['2xl'],
-  lineHeight: 1.5,
+  lineHeight: vars.lineHeight.normal,
   color: vars.color.white,
   textAlign: 'center',
   letterSpacing: '0.39px',
   whiteSpace: 'pre-line',
 });
 
-export const heroCta = style({
-  marginTop: 24,
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  height: 40,
-  padding: `2px 16px 3px`,
-  fontFamily: 'var(--font-pretendard), sans-serif',
-  fontWeight: vars.fontWeight.semibold,
-  fontSize: vars.fontSize.base,
-  color: vars.color.gray[800],
-  backgroundColor: vars.color.white,
-  border: `1px solid ${vars.color.gray[800]}`,
-  borderRadius: vars.radius.lg,
-  textDecoration: 'none',
-  boxSizing: 'border-box',
-  cursor: 'pointer',
+export const heroCtaWrap = style({
+  marginTop: '26px',
 });
 
 export const main = style({
@@ -130,6 +116,7 @@ export const sectionTitle = style({
   lineHeight: '32px',
   color: vars.color.gray[900],
   letterSpacing: '0.39px',
+  whiteSpace: 'pre-line',
 });
 
 export const sectionDescription = style({
@@ -140,6 +127,7 @@ export const sectionDescription = style({
   lineHeight: 1.5,
   color: '#676767',
   letterSpacing: '0.39px',
+  whiteSpace: 'pre-line',
 });
 
 export const sectionImage = style({
@@ -176,22 +164,4 @@ export const ctaTitle = style({
   color: vars.color.gray[900],
   textAlign: 'center',
   letterSpacing: '0.39px',
-});
-
-export const ctaButton = style({
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  height: 48,
-  padding: `0 ${vars.space.xl}`,
-  fontFamily: 'var(--font-pretendard), sans-serif',
-  fontWeight: vars.fontWeight.semibold,
-  fontSize: vars.fontSize.base,
-  color: vars.color.white,
-  backgroundColor: vars.color.gray[800],
-  border: 'none',
-  borderRadius: vars.radius.lg,
-  textDecoration: 'none',
-  boxSizing: 'border-box',
-  cursor: 'pointer',
 });

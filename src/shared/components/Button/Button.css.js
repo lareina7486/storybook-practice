@@ -15,10 +15,15 @@ export const base = style({
   alignItems: 'center',
   justifyContent: 'center',
   gap: vars.space.sm,
+  height: '48px',
+  padding: `0 ${vars.space.xl}`,
   fontFamily: 'var(--font-pretendard), sans-serif',
+  fontSize: vars.fontSize.base,
+  fontWeight: vars.fontWeight.semibold,
   lineHeight: vars.lineHeight.normal,
   cursor: 'pointer',
   border: 'none',
+  borderRadius: vars.radius.lg,
   boxSizing: 'border-box',
   transition,
   outline: 'none',
@@ -194,6 +199,29 @@ export const variant = styleVariants({
       },
       '&:focus-visible': {
         boxShadow: `0 0 0 3px ${vars.color.gray[800]}40`,
+      },
+      '&:active:not(:disabled)': {
+        backgroundColor: vars.color.gray[200],
+      },
+    },
+  },
+  /** 흰 배경 + 연한 테두리 (예: Google로 시작하기) */
+  secondary: {
+    height: '48px',
+    padding: `0 ${vars.space.xl}`,
+    backgroundColor: vars.color.white,
+    border: `1px solid ${vars.color.gray[200]}`,
+    color: vars.color.gray[900],
+    fontSize: vars.fontSize.base,
+    fontWeight: vars.fontWeight.regular,
+    borderRadius: vars.radius.lg,
+    selectors: {
+      '&:hover:not(:disabled)': {
+        backgroundColor: vars.color.gray[50],
+        boxShadow: vars.shadow.sm,
+      },
+      '&:focus-visible': {
+        boxShadow: `0 0 0 3px ${vars.color.gray[400]}40`,
       },
       '&:active:not(:disabled)': {
         backgroundColor: vars.color.gray[200],

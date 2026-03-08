@@ -11,7 +11,7 @@ export default {
     profileType: {
       control: 'radio',
       options: ['admin', 'member'],
-      description: '전문가(admin)=ic_profile_admin, 일반 멤버(member)=ic_profile_member',
+      description: '전문가(admin)=profile_admin, 일반 멤버(member)=profile_member',
     },
   },
 };
@@ -32,7 +32,7 @@ export const Default = () => (
   </div>
 );
 
-/** role="전문가" → 자동으로 ic_profile_admin 표시 */
+/** role="전문가" → 자동으로 profile_admin 표시 */
 export const ExpertRow = () => (
   <div style={{ width: '686px' }}>
     <List>
@@ -48,7 +48,7 @@ export const ExpertRow = () => (
   </div>
 );
 
-/** profileType="member" → ic_profile_member 표시 */
+/** profileType="member" → profile_member 표시 */
 export const MemberRow = () => (
   <div style={{ width: '686px' }}>
     <List>

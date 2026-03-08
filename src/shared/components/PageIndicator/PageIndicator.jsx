@@ -36,7 +36,7 @@ export const PageIndicator = ({ current, total, onChange }) => {
         disabled={!canPrev}
         aria-label="이전 페이지"
       >
-        <Icon name="ic_arrow_left" width={40} height={40} aria-hidden />
+        <Icon name="arrow_left" width={40} height={40} aria-hidden />
       </button>
       {Array.from({ length: windowLength }).map((_, i) => {
         const step = start + i;
@@ -58,7 +58,7 @@ export const PageIndicator = ({ current, total, onChange }) => {
         disabled={!canNext}
         aria-label="다음 페이지"
       >
-        <Icon name="ic_arrow_right" width={40} height={40} aria-hidden />
+        <Icon name="arrow_right" width={40} height={40} aria-hidden />
       </button>
     </div>
   );

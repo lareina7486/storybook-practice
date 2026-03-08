@@ -37,7 +37,7 @@ export function Dropdown({ label = '카테고리', options = [], value, onChange
         <span className={styles.triggerLabel}>{displayText}</span>
         <span className={styles.triggerIcon} aria-hidden>
           <Icon
-            name={open ? 'ic_toggle_up' : 'ic_toggle_down'}
+            name={open ? 'toggle_up' : 'toggle_down'}
             width={24}
             height={24}
           />

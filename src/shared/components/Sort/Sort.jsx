@@ -22,7 +22,7 @@ export function Sort({
         {label}
       </span>
       <span className={styles.iconWrap}>
-        <Icon name="ic_toggle_down" width={24} height={24} aria-hidden />
+        <Icon name="toggle_down" width={24} height={24} aria-hidden />
       </span>
     </button>
   );

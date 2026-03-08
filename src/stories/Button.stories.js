@@ -92,7 +92,7 @@ export const TransparentWithIcon = (args) => (
   <Button
     {...args}
     variant="transparent"
-    icon={<Icon name="icon_arrow_right" width={24} height={24} />}
+    icon={<Icon name="arrow_right" width={24} height={24} />}
     iconPosition="right"
   >
     링크 열기
@@ -111,7 +111,7 @@ export const OutlineIconOngoing = (args) => (
   <Button
     {...args}
     variant="outlineIcon"
-    icon={<Icon name="icon_arrow_right" width={24} height={24} />}
+    icon={<Icon name="arrow_right" width={24} height={24} />}
     iconPosition="right"
   >
     도전 계속하기
@@ -123,7 +123,7 @@ export const OutlineIconView = (args) => (
   <Button
     {...args}
     variant="outlineIcon"
-    icon={<Icon name="icon_document" width={24} height={24} />}
+    icon={<Icon name="document" width={24} height={24} />}
     iconPosition="right"
   >
     내 작업물 보기
@@ -135,7 +135,7 @@ export const SolidWithLeftIcon = (args) => (
   <Button
     {...args}
     variant="solid"
-    icon={<Icon name="icon_plus" width={16} height={16} />}
+    icon={<Icon name="plus" width={16} height={16} />}
     iconPosition="left"
   >
     신규 챌린지 신청
@@ -190,21 +190,21 @@ export const AllVariants = () => (
     >
       <Button
         variant="outlineIcon"
-        icon={<Icon name="icon_arrow_right" width={24} height={24} />}
+        icon={<Icon name="arrow_right" width={24} height={24} />}
         iconPosition="right"
       >
         도전 계속하기
       </Button>
       <Button
         variant="outlineIcon"
-        icon={<Icon name="icon_document" width={24} height={24} />}
+        icon={<Icon name="document" width={24} height={24} />}
         iconPosition="right"
       >
         내 작업물 보기
       </Button>
       <Button
         variant="solid"
-        icon={<Icon name="icon_plus" width={16} height={16} />}
+        icon={<Icon name="plus" width={16} height={16} />}
         iconPosition="right"
       >
         신규 챌린지 신청

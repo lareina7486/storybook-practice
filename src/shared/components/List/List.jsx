@@ -4,7 +4,7 @@ import { Icon } from '@/shared/icons/Icon';
 import * as styles from './List.css.js';
 
 /**
- * @param {'admin'|'member'} [profileType] - 전문가(admin)면 ic_profile_admin, 일반 멤버면 ic_profile_member. 없으면 role이 '전문가'일 때 admin
+ * @param {'admin'|'member'} [profileType] - 전문가(admin)면 profile_admin, 일반 멤버면 profile_member. 없으면 role이 '전문가'일 때 admin
  */
 export function ListRow({
   badgeLabel,
@@ -17,13 +17,13 @@ export function ListRow({
   showBadge = true,
 }) {
   const isExpert = profileType === 'admin' || (profileType == null && role === '전문가');
-  const profileIconName = isExpert ? 'ic_profile_admin' : 'ic_profile_member';
+  const profileIconName = isExpert ? 'profile_admin' : 'profile_member';
 
   return (
     <div className={styles.row}>
       {showBadge && badgeLabel != null && (
         <span className={styles.badge}>
-          <Icon name="ic_crown" width={16} height={16} aria-hidden />
+          <Icon name="crown" width={16} height={16} aria-hidden />
           {badgeLabel}
         </span>
       )}
@@ -41,7 +41,7 @@ export function ListRow({
           onClick={onLikeClick}
           aria-label="좋아요"
         >
-          <Icon name="icon_heart_active" width={16} height={16} aria-hidden />
+          <Icon name="heart_active" width={16} height={16} aria-hidden />
           {likeCountProp != null ? likeCountProp.toLocaleString() : '0'}
         </button>
         <button
@@ -50,7 +50,7 @@ export function ListRow({
           onClick={onWorkClick}
         >
           작업물 보기
-          <Icon name="icon_arrow_right" width={16} height={16} aria-hidden />
+          <Icon name="arrow_right" width={16} height={16} aria-hidden />
         </button>
       </div>
     </div>

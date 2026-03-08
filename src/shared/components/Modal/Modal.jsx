@@ -62,7 +62,7 @@ export function Modal({
                 onClick={onClose}
                 aria-label="닫기"
               >
-                <Icon name="ic_out" width={24} height={24} />
+                <Icon name="out" width={24} height={24} />
               </button>
             </div>
             {children ? (
