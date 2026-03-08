@@ -1,4 +1,5 @@
 import { style, styleVariants } from '@vanilla-extract/css';
+import { vars } from '../tokens.css.js';
 
 export const root = style({
   width: '100%',
@@ -7,24 +8,24 @@ export const root = style({
 const textareaBase = style({
   width: '100%',
   minHeight: '89px',
-  padding: '16px',
-  backgroundColor: 'var(--white, #ffffff)',
-  border: '1px solid var(--gray-gray200, #E5E5E5)',
-  borderRadius: '12px',
+  padding: vars.space.lg,
+  backgroundColor: vars.color.white,
+  border: `1px solid ${vars.color.gray[200]}`,
+  borderRadius: vars.radius.lg,
   fontFamily: 'var(--font-pretendard), sans-serif',
-  fontSize: 'var(--font-size-base)',
-  fontWeight: 500,
-  lineHeight: 'normal',
-  color: 'var(--gray-gray900, #171717)',
+  fontSize: vars.fontSize.base,
+  fontWeight: vars.fontWeight.medium,
+  lineHeight: vars.lineHeight.normal,
+  color: vars.color.gray[900],
   boxSizing: 'border-box',
   resize: 'vertical',
   outline: 'none',
   selectors: {
     '&::placeholder': {
-      color: 'var(--gray-gray400, #A3A3A3)',
+      color: vars.color.gray[400],
     },
     '&:focus': {
-      borderColor: 'var(--gray-gray800, #262626)',
+      borderColor: vars.color.gray[800],
     },
   },
 });

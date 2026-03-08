@@ -1,5 +1,5 @@
 import Image from 'next/image.js';
-import { chipCard } from './ChipCard.css.js';
+import { chipCard, chipCardLabel } from './ChipCard.css.js';
 import person from '@/shared/icons/ic_person.svg';
 import deadline from '@/shared/icons/ic_deadline.svg';
 
@@ -22,7 +22,7 @@ export const ChipCard = ({ status }) => {
   return (
     <div className={chipCard[status]}>
       <Image src={meta.icon} width={16} height={16} alt={meta.alt} />
-      <span>{meta.label}</span>
+      <span className={chipCardLabel}>{meta.label}</span>
     </div>
   );
 };

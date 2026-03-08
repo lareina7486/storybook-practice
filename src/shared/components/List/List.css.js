@@ -1,12 +1,13 @@
 import { style } from '@vanilla-extract/css';
+import { vars } from '../tokens.css.js';
 
 export const row = style({
   display: 'flex',
   alignItems: 'center',
-  gap: '12px',
+  gap: vars.space.md,
   width: '100%',
   minHeight: '47px',
-  padding: '6px 0',
+  padding: `${vars.space.sm} 0`,
   boxSizing: 'border-box',
 });
 
@@ -15,12 +16,12 @@ export const badge = style({
   alignItems: 'center',
   gap: '2px',
   padding: '2px 7px',
-  backgroundColor: 'var(--gray-gray800, #262626)',
-  borderRadius: '16px',
+  backgroundColor: vars.color.gray[800],
+  borderRadius: vars.radius.xl,
   fontFamily: 'var(--font-pretendard), sans-serif',
-  fontSize: 'var(--font-size-sm)',
-  fontWeight: 500,
-  color: 'var(--brand-yellow, #FFC117)',
+  fontSize: vars.fontSize.sm,
+  fontWeight: vars.fontWeight.medium,
+  color: vars.color.brand.point,
   flexShrink: 0,
 });
 
@@ -44,47 +45,49 @@ export const info = style({
 
 export const name = style({
   fontFamily: 'var(--font-pretendard), sans-serif',
-  fontSize: 'var(--font-size-sm)',
-  fontWeight: 500,
-  color: 'var(--gray-gray800, #262626)',
+  fontSize: vars.fontSize.sm,
+  fontWeight: vars.fontWeight.medium,
+  color: vars.color.gray[800],
 });
 
 export const role = style({
   fontFamily: 'var(--font-pretendard), sans-serif',
-  fontSize: 'var(--font-size-2xs)',
-  fontWeight: 500,
-  color: 'var(--gray-gray500, #737373)',
+  fontSize: vars.fontSize['2xs'],
+  fontWeight: vars.fontWeight.medium,
+  color: vars.color.gray[500],
 });
 
 export const right = style({
   display: 'flex',
   alignItems: 'center',
-  gap: '4px',
+  gap: vars.space.xs,
   flexShrink: 0,
 });
+
+const transition = `color ${vars.transition.duration.normal} ${vars.transition.timing.ease}, background-color ${vars.transition.duration.normal} ${vars.transition.timing.ease}`;
 
 export const likeCount = style({
   display: 'flex',
   alignItems: 'center',
-  gap: '4px',
+  gap: vars.space.xs,
   fontFamily: 'var(--font-pretendard), sans-serif',
-  fontSize: 'var(--font-size-sm)',
-  fontWeight: 500,
-  color: 'var(--gray-gray500, #737373)',
+  fontSize: vars.fontSize.sm,
+  fontWeight: vars.fontWeight.medium,
+  color: vars.color.gray[500],
   background: 'none',
   border: 'none',
-  padding: '4px 6px',
+  padding: `${vars.space.xs} ${vars.space.sm}`,
   borderRadius: '6px',
   cursor: 'pointer',
-  transition: 'color 0.2s ease, background-color 0.2s ease',
+  transition,
   outline: 'none',
   selectors: {
     '&:hover': {
-      color: 'var(--gray-gray700, #404040)',
-      backgroundColor: 'var(--gray-gray100, #E8EBED)',
+      color: vars.color.gray[700],
+      backgroundColor: vars.color.gray[100],
     },
     '&:focus-visible': {
-      boxShadow: '0 0 0 2px rgba(0,0,0,0.15)',
+      boxShadow: `0 0 0 2px ${vars.color.gray[900]}26`,
     },
   },
 });
@@ -94,23 +97,23 @@ export const workLink = style({
   alignItems: 'center',
   gap: '2px',
   fontFamily: 'var(--font-pretendard), sans-serif',
-  fontSize: 'var(--font-size-2xs)',
-  fontWeight: 500,
-  color: 'var(--gray-gray800, #262626)',
+  fontSize: vars.fontSize['2xs'],
+  fontWeight: vars.fontWeight.medium,
+  color: vars.color.gray[800],
   background: 'none',
   border: 'none',
-  padding: '4px 6px',
+  padding: `${vars.space.xs} ${vars.space.sm}`,
   borderRadius: '6px',
   cursor: 'pointer',
-  transition: 'color 0.2s ease, background-color 0.2s ease',
+  transition,
   outline: 'none',
   selectors: {
     '&:hover': {
-      color: 'var(--gray-gray900, #171717)',
-      backgroundColor: 'var(--gray-gray100, #E8EBED)',
+      color: vars.color.gray[900],
+      backgroundColor: vars.color.gray[100],
     },
     '&:focus-visible': {
-      boxShadow: '0 0 0 2px rgba(0,0,0,0.15)',
+      boxShadow: `0 0 0 2px ${vars.color.gray[900]}26`,
     },
   },
 });
@@ -118,7 +121,7 @@ export const workLink = style({
 export const divider = style({
   width: '100%',
   height: '1px',
-  backgroundColor: 'var(--gray-gray200, #E5E5E5)',
+  backgroundColor: vars.color.gray[200],
   border: 'none',
   margin: 0,
 });
@@ -126,6 +129,6 @@ export const divider = style({
 export const list = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '12px',
+  gap: vars.space.md,
   width: '100%',
 });

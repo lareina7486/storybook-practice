@@ -6,40 +6,45 @@ export default {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
+    viewport: { defaultViewport: 'desktop' },
   },
 };
 
-export const Large = () => (
+const CardWrapper = ({ children }) => (
+  <div style={{ width: 996, minHeight: 227 }}>{children}</div>
+);
+
+export const Default = () => (
+  <CardWrapper>
   <Card
-    size="large"
-    status="recruitEnd"
-    title="Next.js - App Router: Routing Fundamentals"
-    chipType="next"
-    chipCategory="docs"
-    deadlineText="2024년 3월 3일 마감"
-    personText="5/5 참여 완료"
-    ctaLabel="도전 계속하기"
     onCtaClick={() => {}}
+    showEditMenu
+    study={{
+      isRecruitmentFull: true,
+      isDeadlinePassed: false,
+      title: 'Next.js - App Router: Routing Fundamentals',
+      type: 'MODERN_JS',
+      category: 'BLOG',
+      deadline: '2026-03-08',
+      maxParticipants: 8,
+      currentParticipants: 6,
+      isParticipating: true,
+    }}
   />
+  </CardWrapper>
 );
 
-export const Medium = () => (
-  <Card
-    size="medium"
-    status="dateEnd"
-    title="API 설계 베스트 프랙티스"
-    chipType="api"
-    chipCategory="blog"
-    deadlineText="2024년 2월 15일 마감"
-    personText="3/5 참여 완료"
-  />
-);
+// export const WithDateEnd = () => (
+//   <Card
+//     status="dateEnd"
+//     title="API 설계 베스트 프랙티스"
+//     chipType="api"
+//     chipCategory="blog"
+//     deadlineText="2024년 2월 15일 마감"
+//     personText="3/5 참여 완료"
+//   />
+// );
 
-export const Small = () => (
-  <Card
-    size="small"
-    title="모던 자바스크립트"
-    chipType="modernJs"
-    deadlineText="마감 D-7"
-  />
-);
+// export const Minimal = () => (
+//   <Card title="모던 자바스크립트" chipType="modernJs" deadlineText="마감 D-7" />
+// );

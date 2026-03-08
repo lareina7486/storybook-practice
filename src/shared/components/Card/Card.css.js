@@ -1,43 +1,45 @@
-import { style, styleVariants } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
+import { vars } from '../tokens.css.js';
+import { breakpoint } from '../breakpoints.css.js';
 
-const cardBase = style({
+/**
+ * Card: small(기본) → medium(768px~) → large(1024px~) 미디어 쿼리로 반응형 적용
+ */
+export const card = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '10px',
-  padding: '24px',
-  backgroundColor: 'var(--white, #ffffff)',
-  border: '2px solid var(--gray-gray800, #262626)',
-  borderRadius: '12px',
+  padding: vars.space.xl,
+  backgroundColor: vars.color.white,
+  border: `2px solid ${vars.color.gray[800]}`,
+  borderRadius: vars.radius.lg,
   fontFamily: 'var(--font-pretendard), sans-serif',
   boxSizing: 'border-box',
-});
-
-export const card = styleVariants({
-  large: [
-    cardBase,
-    {
-      maxWidth: '996px',
-    },
-  ],
-  medium: [
-    cardBase,
-    {
+  width: '100%',
+  maxWidth: '343px',
+  '@media': {
+    [breakpoint.md]: {
       maxWidth: '696px',
     },
-  ],
-  small: [
-    cardBase,
-    {
-      maxWidth: '343px',
+    [breakpoint.lg]: {
+      maxWidth: '996px',
     },
-  ],
+  },
 });
 
 export const header = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '16px',
+  gap: '14px',
   width: '100%',
+});
+
+export const titleBlock = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: vars.space.lg,
+  width: '100%',
+  position: 'relative',
 });
 
 export const titleRow = style({
@@ -47,24 +49,39 @@ export const titleRow = style({
   width: '100%',
 });
 
+export const editButton = style({
+  position: 'absolute',
+  top: 0,
+  right: 0,
+  width: 24,
+  height: 24,
+  padding: 0,
+  border: 'none',
+  background: 'transparent',
+  cursor: 'pointer',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+});
+
 export const chipsRow = style({
   display: 'flex',
-  gap: '8px',
+  gap: vars.space.sm,
   flexWrap: 'wrap',
 });
 
 export const title = style({
-  fontSize: 'var(--font-size-xl)',
-  fontWeight: 600,
-  lineHeight: 'normal',
-  color: 'var(--gray-gray700, #404040)',
+  fontSize: vars.fontSize.xl,
+  fontWeight: vars.fontWeight.semibold,
+  lineHeight: vars.lineHeight.normal,
+  color: vars.color.gray[700],
   margin: 0,
 });
 
 export const divider = style({
   height: '1px',
   width: '100%',
-  backgroundColor: 'var(--gray-gray200, #E5E5E5)',
+  backgroundColor: vars.color.gray[200],
   border: 'none',
   margin: 0,
 });
@@ -72,7 +89,7 @@ export const divider = style({
 export const footer = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '16px',
+  gap: vars.space.lg,
   width: '100%',
 });
 
@@ -81,21 +98,21 @@ export const metaRow = style({
   alignItems: 'center',
   justifyContent: 'space-between',
   flexWrap: 'wrap',
-  gap: '12px',
+  gap: vars.space.md,
 });
 
 export const metaLeft = style({
   display: 'flex',
   alignItems: 'center',
-  gap: '12px',
+  gap: vars.space.md,
   flexWrap: 'wrap',
 });
 
 export const metaItem = style({
   display: 'flex',
   alignItems: 'center',
-  gap: '4px',
-  fontSize: 'var(--font-size-xs)',
-  fontWeight: 400,
-  color: 'var(--gray-gray600, #525252)',
+  gap: vars.space.xs,
+  fontSize: vars.fontSize.xs,
+  fontWeight: vars.fontWeight.regular,
+  color: vars.color.gray[600],
 });

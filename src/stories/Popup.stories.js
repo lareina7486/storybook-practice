@@ -22,7 +22,6 @@ export const AlertSmall = () => {
         onClose={() => setOpen(false)}
         message="가입이 완료되었습니다!"
         confirmLabel="확인"
-        size="small"
       />
     </>
   );
@@ -39,7 +38,6 @@ export const AlertLarge = () => {
         open={open}
         onClose={() => setOpen(false)}
         message="작업이 완료되었습니다."
-        size="large"
       />
     </>
   );

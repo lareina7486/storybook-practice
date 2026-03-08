@@ -1,41 +1,53 @@
-import { style, styleVariants, fontFace } from '@vanilla-extract/css';
-import '@fontsource/pretendard';
+import { style, styleVariants } from '@vanilla-extract/css';
+import { vars } from '../tokens.css.js';
+import { breakpoint } from '../breakpoints.css.js';
 
-const pretendard_500 = fontFace({
-  src: "url(@fontsource/pretendard/files/pretendard-latin-500-normal.woff2) format('woff2')",
-});
-
-/* Figma chip-card-status: px-12 py-8, rounded-24, gap-4, Pretendard Medium 13px */
+/* Figma chip-card-status: px-12 py-8, rounded-24, gap-4, Pretendard Medium 13px (next/font --font-pretendard 사용) */
 const chipCardBase = style({
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
-  gap: '4px',
+  gap: vars.space.xs,
   whiteSpace: 'nowrap',
   boxSizing: 'border-box',
   height: '32px',
-  padding: '8px 12px',
+  padding: `${vars.space.sm} ${vars.space.md}`,
   borderRadius: '24px',
   textAlign: 'justify',
-  fontSize: 'var(--font-size-xs)',
-  fontFamily: pretendard_500,
-  fontWeight: '500',
+  fontSize: vars.fontSize.xs,
+  fontFamily: 'var(--font-pretendard), sans-serif',
+  fontWeight: vars.fontWeight.medium,
   wordWrap: 'break-word',
+  '@media': {
+    [breakpoint.lg]: {
+      width: '163px',
+      maxWidth: '163px',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+    },
+  },
+});
+
+export const chipCardLabel = style({
+  minWidth: 0,
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
 });
 
 export const chipCard = styleVariants({
   recruitEnd: [
     chipCardBase,
     {
-      backgroundColor: 'var(--gray-gray200, #E5E5E5)',
-      color: 'var(--gray-gray800, #262626)',
+      backgroundColor: vars.color.gray[200],
+      color: vars.color.gray[800],
     },
   ],
   dateEnd: [
     chipCardBase,
     {
-      backgroundColor: 'var(--gray-gray800, #262626)',
-      color: 'var(--white, #ffffff)',
+      backgroundColor: vars.color.gray[800],
+      color: vars.color.white,
     },
   ],
 });

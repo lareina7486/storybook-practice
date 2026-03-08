@@ -22,7 +22,6 @@ export const ConfirmDialog = () => {
         open={open}
         onClose={() => setOpen(false)}
         variant="dialog"
-        size="small"
         message="정말 삭제하시겠어요?"
         primaryLabel="네"
         secondaryLabel="아니오"
@@ -45,7 +44,6 @@ export const FormModal = () => {
         open={open}
         onClose={() => setOpen(false)}
         variant="form"
-        size="large"
         title="거절 사유"
         submitLabel="전송"
         onSubmit={() => setOpen(false)}

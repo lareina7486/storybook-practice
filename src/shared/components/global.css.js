@@ -1,4 +1,5 @@
 import { globalStyle } from '@vanilla-extract/css';
+import { vars } from './tokens.css.js';
 
 /**
  * Global styles
@@ -16,35 +17,35 @@ globalStyle('html', {
 globalStyle('body', {
   fontFamily:
     'var(--font-pretendard), Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif',
-  fontSize: 'var(--font-size-base)',
-  color: 'var(--gray-gray800, #262626)',
-  backgroundColor: 'var(--white, #ffffff)',
+  fontSize: vars.fontSize.base,
+  color: vars.color.gray[800],
+  backgroundColor: vars.color.white,
   WebkitFontSmoothing: 'antialiased',
   MozOsxFontSmoothing: 'grayscale',
 });
 
 /* 선택(드래그) 영역 스타일 */
 globalStyle('::selection', {
-  backgroundColor: 'var(--gray-gray200, #E5E5E5)',
-  color: 'var(--gray-gray800, #262626)',
+  backgroundColor: vars.color.gray[200],
+  color: vars.color.gray[800],
 });
 
 /* 스크롤바 (선택 사항, Webkit) */
 globalStyle('::-webkit-scrollbar', {
-  width: '8px',
-  height: '8px',
+  width: vars.space.sm,
+  height: vars.space.sm,
 });
 
 globalStyle('::-webkit-scrollbar-track', {
-  backgroundColor: 'var(--gray-gray100, #E8EBED)',
-  borderRadius: '4px',
+  backgroundColor: vars.color.gray[100],
+  borderRadius: vars.radius.sm,
 });
 
 globalStyle('::-webkit-scrollbar-thumb', {
-  backgroundColor: 'var(--gray-gray300, #D4D4D4)',
-  borderRadius: '4px',
+  backgroundColor: vars.color.gray[300],
+  borderRadius: vars.radius.sm,
 });
 
 globalStyle('::-webkit-scrollbar-thumb:hover', {
-  backgroundColor: 'var(--gray-gray400, #A3A3A3)',
+  backgroundColor: vars.color.gray[400],
 });

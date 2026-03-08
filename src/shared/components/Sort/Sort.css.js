@@ -1,32 +1,35 @@
 import { style, styleVariants } from '@vanilla-extract/css';
+import { vars } from '../tokens.css.js';
+import { breakpoint } from '../breakpoints.css.js';
 
-const base = style({
+export const root = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  width: '100%',
-  padding: '8px 8px 8px 12px',
-  backgroundColor: 'var(--white, #ffffff)',
-  border: '1px solid var(--gray-gray300, #D4D4D4)',
-  borderRadius: '32px',
+  width: '140px',
+  padding: `${vars.space.sm} ${vars.space.sm} ${vars.space.sm} 10px`,
+  backgroundColor: vars.color.white,
+  border: `1px solid ${vars.color.gray[300]}`,
+  borderRadius: vars.radius.full,
   fontFamily: 'var(--font-pretendard), sans-serif',
-  fontSize: 'var(--font-size-base)',
-  fontWeight: 400,
+  fontSize: vars.fontSize.sm,
+  fontWeight: vars.fontWeight.regular,
   cursor: 'pointer',
   boxSizing: 'border-box',
-});
-
-export const root = styleVariants({
-  large: [base, { width: '140px' }],
-  small: [base, { width: '140px', padding: '6px 6px 6px 10px', fontSize: 'var(--font-size-sm)' }],
+  '@media': {
+    [breakpoint.md]: {
+      padding: `${vars.space.sm} ${vars.space.sm} ${vars.space.sm} ${vars.space.md}`,
+      fontSize: vars.fontSize.base,
+    },
+  },
 });
 
 export const label = styleVariants({
   default: {
-    color: 'var(--gray-gray400, #A3A3A3)',
+    color: vars.color.gray[400],
   },
   active: {
-    color: 'var(--gray-gray800, #262626)',
+    color: vars.color.gray[800],
   },
 });
 

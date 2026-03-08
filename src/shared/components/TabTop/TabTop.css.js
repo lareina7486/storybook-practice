@@ -1,4 +1,5 @@
 import { style, styleVariants } from '@vanilla-extract/css';
+import { vars } from '../tokens.css.js';
 
 export const list = style({
   display: 'flex',
@@ -16,15 +17,15 @@ const itemBase = style({
   padding: '21px 17px',
   fontFamily: 'var(--font-pretendard), sans-serif',
   fontSize: '15px',
-  fontWeight: 600,
-  color: 'var(--gray-gray500, #737373)',
+  fontWeight: vars.fontWeight.semibold,
+  color: vars.color.gray[500],
   cursor: 'pointer',
-  background: 'var(--white, #ffffff)',
+  background: vars.color.white,
   border: 'none',
-  transition: 'color 0.15s',
+  transition: `color ${vars.transition.duration.fast} ${vars.transition.timing.ease}`,
   selectors: {
     '&:hover': {
-      color: 'var(--gray-gray700, #404040)',
+      color: vars.color.gray[700],
     },
   },
 });
@@ -34,8 +35,8 @@ export const item = styleVariants({
   active: [
     itemBase,
     {
-      fontWeight: 700,
-      color: 'var(--gray-gray800, #262626)',
+      fontWeight: vars.fontWeight.bold,
+      color: vars.color.gray[800],
     },
   ],
 });

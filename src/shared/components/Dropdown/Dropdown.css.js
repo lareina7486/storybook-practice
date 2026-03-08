@@ -1,4 +1,5 @@
 import { style, styleVariants } from '@vanilla-extract/css';
+import { vars } from '../tokens.css.js';
 
 export const root = style({
   position: 'relative',
@@ -6,20 +7,22 @@ export const root = style({
   maxWidth: '800px',
 });
 
+const transition = `background-color ${vars.transition.duration.fast} ${vars.transition.timing.ease}, color ${vars.transition.duration.fast} ${vars.transition.timing.ease}`;
+
 const triggerBase = style({
   display: 'flex',
   alignItems: 'center',
   width: '100%',
   height: '56px',
-  padding: '8px 16px',
-  backgroundColor: 'var(--white, #ffffff)',
-  border: '1px solid var(--gray-gray200, #E5E5E5)',
-  borderRadius: '4px',
+  padding: `${vars.space.sm} ${vars.space.lg}`,
+  backgroundColor: vars.color.white,
+  border: `1px solid ${vars.color.gray[200]}`,
+  borderRadius: vars.radius.sm,
   cursor: 'pointer',
   fontFamily: 'var(--font-pretendard), sans-serif',
-  fontSize: 'var(--font-size-base)',
-  fontWeight: 400,
-  color: 'var(--gray-gray400, #A3A3A3)',
+  fontSize: vars.fontSize.base,
+  fontWeight: vars.fontWeight.regular,
+  color: vars.color.gray[400],
   textAlign: 'left',
 });
 
@@ -44,7 +47,7 @@ export const triggerIcon = style({
   justifyContent: 'center',
   width: '48px',
   height: '48px',
-  margin: '-8px -8px -8px 0',
+  margin: `-${vars.space.sm} -${vars.space.sm} -${vars.space.sm} 0`,
 });
 
 export const list = style({
@@ -55,11 +58,11 @@ export const list = style({
   zIndex: 10,
   display: 'flex',
   flexDirection: 'column',
-  backgroundColor: 'var(--white, #ffffff)',
-  border: '1px solid var(--gray-gray300, #D4D4D4)',
+  backgroundColor: vars.color.white,
+  border: `1px solid ${vars.color.gray[300]}`,
   borderTop: 'none',
-  borderBottomLeftRadius: '8px',
-  borderBottomRightRadius: '8px',
+  borderBottomLeftRadius: vars.radius.md,
+  borderBottomRightRadius: vars.radius.md,
   overflow: 'hidden',
 });
 
@@ -67,22 +70,22 @@ export const item = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  padding: '12px 16px',
-  borderBottom: '1px solid var(--gray-gray300, #D4D4D4)',
+  padding: `${vars.space.md} ${vars.space.lg}`,
+  borderBottom: `1px solid ${vars.color.gray[300]}`,
   fontFamily: 'var(--font-pretendard), sans-serif',
-  fontSize: 'var(--font-size-base)',
-  fontWeight: 400,
-  color: 'var(--gray-gray500, #737373)',
+  fontSize: vars.fontSize.base,
+  fontWeight: vars.fontWeight.regular,
+  color: vars.color.gray[500],
   cursor: 'pointer',
-  backgroundColor: 'var(--white, #ffffff)',
-  transition: 'background-color 0.15s, color 0.15s',
+  backgroundColor: vars.color.white,
+  transition,
   selectors: {
     '&:last-child': {
       borderBottom: 'none',
     },
     '&:hover': {
-      backgroundColor: 'var(--gray-gray50, #FAFAFA)',
-      color: 'var(--gray-gray800, #262626)',
+      backgroundColor: vars.color.gray[50],
+      color: vars.color.gray[800],
     },
   },
 });

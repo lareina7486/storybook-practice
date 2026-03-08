@@ -1,55 +1,103 @@
-import { globalStyle, style } from '@vanilla-extract/css';
+import { createGlobalTheme } from '@vanilla-extract/css';
 
-// Figma Color System → CSS Custom Properties
-// 링크: https://www.figma.com/design/8ZqOLwlXqxLjudjiXXQwpn
+export const vars = createGlobalTheme(':root', {
+  color: {
+    gray: {
+      900: '#171717',
+      800: '#262626',
+      700: '#404040',
+      600: '#525252',
+      500: '#737373',
+      400: '#A3A3A3',
+      300: '#D4D4D4',
+      200: '#E5E5E5',
+      100: '#E8EBED',
+      50: '#FAFAFA',
+    },
 
-/* Vite vanilla-extract 플러그인이 파일을 인식하도록 (사용하지 않음) */
-export const _tokensScope = style({});
+    white: '#FFFFFF',
 
-globalStyle(':root', {
-  // Gray scale (Figma color system)
-  '--gray-gray900': '#171717',
-  '--gray-gray800': '#262626',
-  '--gray-gray700': '#404040',
-  '--gray-gray600': '#525252',
-  '--gray-gray500': '#737373',
-  '--gray-gray400': '#A3A3A3',
-  '--gray-gray300': '#D4D4D4',
-  '--gray-gray200': '#E5E5E5',
-  '--gray-gray100': '#E8EBED',
-  '--gray-gray50': '#FAFAFA',
+    brand: {
+      background: '#262626',
+      point: '#FFC117',
+      text: '#F1F2F5',
+    },
 
-  // Base
-  '--white': '#FFFFFF',
+    semantic: {
+      error: '#EB3E3E',
+    },
+  },
 
-  // Brand
-  '--brand-black': '#262626',
-  '--brand-yellow': '#FFC117',
-  '--brand-bg': '#F1F2F5',
+  fontSize: {
+    '2xs': '12px',
+    xs: '13px',
+    sm: '14px',
+    base: '16px',
+    md: '18px',
+    lg: '20px',
+    xl: '22px',
+    '2xl': '24px',
+  },
 
-  // Semantic
-  '--red-error': '#EB3E3E',
+  fontWeight: {
+    regular: '400',
+    medium: '500',
+    semibold: '600',
+    bold: '700',
+  },
 
-  // Typography (Figma font system)
-  // font-family는 next/font 변수(--font-pretendard)를 통해 적용
+  space: {
+    xs: '4px',
+    sm: '8px',
+    md: '12px',
+    lg: '16px',
+    xl: '24px',
+    '2xl': '32px',
+  },
 
-  // fontSize: 'var(--font-size-base)',
-  // fontWeight: 'var(--font-weight-bold)',
-  // lineHeight: 'var(--line-height-tight)',
-  '--font-weight-bold': '700',
-  '--font-weight-semibold': '600',
-  '--font-weight-medium': '500',
-  '--font-weight-regular': '400',
+  radius: {
+    sm: '4px',
+    md: '8px',
+    lg: '12px',
+    xl: '16px',
+    '2xl': '30px',
+    full: '9999px',
+  },
 
-  '--font-size-xxl': '24px',
-  '--font-size-xl': '22px',
-  '--font-size-lg': '20px',
-  '--font-size-md': '18px',
-  '--font-size-base': '16px',
-  '--font-size-sm': '14px',
-  '--font-size-xs': '13px',
-  '--font-size-2xs': '12px',
+  shadow: {
+    xs: '0 1px 2px 0 rgba(0,0,0,0.05)',
+    sm: '0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)',
+    md: '0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1)',
+    lg: '0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)',
+    xl: '0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1)',
+  },
 
-  '--line-height-tight': '1',
-  '--line-height-normal': '1.5',
+  zIndex: {
+    dropdown: '1000',
+    modal: '1100',
+    toast: '1200',
+    tooltip: '1300',
+  },
+
+  transition: {
+    duration: {
+      fast: '0.15s',
+      normal: '0.2s',
+    },
+    timing: {
+      ease: 'ease',
+    },
+  },
+
+  opacity: {
+    hidden: '0',
+    inactive: '0.4',
+    disabled: '0.5',
+    overlay: '0.4',
+  },
+
+  lineHeight: {
+    tight: '1',
+    normal: '1.5',
+  },
 });

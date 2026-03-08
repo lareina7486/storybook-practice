@@ -8,64 +8,50 @@ const meta = {
     layout: 'fullscreen',
   },
   argTypes: {
-    size: {
-      control: 'radio',
-      options: ['large', 'medium', 'small'],
-      description: 'large 60px, small 56px',
-    },
     status: {
       control: 'radio',
-      options: ['member', 'member-login', 'admin'],
-      description: 'member=로그인 버튼, member-login=알림+멤버 프로필, admin=탭+관리자 프로필',
+      options: ['guest', 'member', 'admin'],
+      description: 'guest=로그인 버튼, member=알림+멤버 프로필, admin=탭+관리자 프로필',
     },
   },
   args: {
-    size: 'large',
-    status: 'member',
+    status: 'guest',
   },
 };
 
 export default meta;
 
-/** 비로그인: 로고 + 로그인 버튼 (Figma size=large, status=member) */
-export const Member = (args) => (
-  <GNB {...args} status="member" onLogin={() => console.log('로그인')} />
-);
+/** 비로그인: 로고 + 로그인 버튼 */
+export const Member = (args) => <GNB {...args} status="guest" />;
 
-/** 로그인된 멤버: 로고 + 알림 + 멤버 프로필 아이콘 (Figma status=member-login) */
-export const MemberLogin = (args) => (
-  <GNB {...args} status="member-login" />
-);
+/** 로그인된 멤버: 로고 + 알림 + 멤버 프로필 아이콘 */
+export const MemberLogin = (args) => <GNB {...args} status="member" />;
 
-/** 관리자: 로고 + 챌린지 관리/챌린지 목록 탭 + 관리자 프로필 (Figma status=admin) */
-export const Admin = (args) => (
-  <GNB
-    {...args}
-    status="admin"
-    tabs={[
-      { label: '챌린지 관리', active: true },
-      { label: '챌린지 목록', active: false },
-    ]}
-    onTabChange={(i) => console.log('탭', i)}
-  />
-);
+/** 관리자: 로고 + 챌린지 관리/챌린지 목록 탭 + 관리자 프로필 */
+export const Admin = (args) => <GNB {...args} status="admin" />;
 
-/** 모바일 너비 (size=small) */
-export const Small = (args) => (
+/** medium 뷰포트 */
+export const SmallViewport = (args) => (
   <div style={{ maxWidth: 375, margin: '0 auto' }}>
-    <GNB {...args} size="small" status="member" onLogin={() => {}} />
+    <GNB {...args} status="guest" onLogin={() => {}} />
+  </div>
+);
+
+/** 좁은 뷰포트에서 small 스타일 적용 (미디어 쿼리) */
+export const SmallViewport = (args) => (
+  <div style={{ maxWidth: 375, margin: '0 auto' }}>
+    <GNB {...args} status="guest" onLogin={() => {}} />
   </div>
 );
 
 /** 모든 상태 한눈에 */
 export const AllStatuses = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
-    <GNB size="large" status="member" onLogin={() => {}} />
+    <GNB status="guest" onLogin={() => console.log('로그인')} />
     <div style={{ padding: 16, background: '#f5f5f5' }} />
-    <GNB size="large" status="member-login" />
+    <GNB status="member" />
     <div style={{ padding: 16, background: '#f5f5f5' }} />
     <GNB
-      size="large"
       status="admin"
       tabs={[
         { label: '챌린지 관리', active: true },

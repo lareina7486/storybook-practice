@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css';
+import { vars } from '../tokens.css.js';
 
 export const root = style({
   position: 'relative',
@@ -9,12 +10,12 @@ export const root = style({
 export const inputWrap = style({
   display: 'flex',
   alignItems: 'center',
-  gap: '4px',
+  gap: vars.space.xs,
   height: '40px',
-  padding: '8px 8px 8px 16px',
-  backgroundColor: 'var(--white, #ffffff)',
-  border: '1px solid var(--gray-gray200, #E5E5E5)',
-  borderRadius: '20px',
+  padding: `${vars.space.sm} ${vars.space.sm} ${vars.space.sm} ${vars.space.lg}`,
+  backgroundColor: vars.color.white,
+  border: `1px solid ${vars.color.gray[200]}`,
+  borderRadius: vars.radius.full,
   boxSizing: 'border-box',
 });
 
@@ -32,12 +33,12 @@ export const input = style({
   outline: 'none',
   background: 'transparent',
   fontFamily: 'var(--font-pretendard), sans-serif',
-  fontSize: 'var(--font-size-base)',
-  fontWeight: 400,
-  color: 'var(--gray-gray900, #171717)',
+  fontSize: vars.fontSize.base,
+  fontWeight: vars.fontWeight.regular,
+  color: vars.color.gray[900],
   selectors: {
     '&::placeholder': {
-      color: 'var(--gray-gray400, #A3A3A3)',
+      color: vars.color.gray[400],
     },
   },
 });

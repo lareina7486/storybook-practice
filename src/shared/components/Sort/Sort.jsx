@@ -7,14 +7,13 @@ import * as styles from './Sort.css.js';
 export function Sort({
   label = '승인 대기',
   active = false,
-  size = 'large',
   onClick,
   ...rest
 }) {
   return (
     <button
       type="button"
-      className={styles.root[size]}
+      className={styles.root}
       onClick={onClick}
       aria-pressed={active}
       {...rest}

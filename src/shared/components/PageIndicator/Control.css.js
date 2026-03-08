@@ -1,9 +1,12 @@
 import { style, styleVariants } from '@vanilla-extract/css';
+import { vars } from '../tokens.css.js';
+
+const transition = `background-color ${vars.transition.duration.normal} ${vars.transition.timing.ease}, color ${vars.transition.duration.normal} ${vars.transition.timing.ease}, box-shadow ${vars.transition.duration.normal} ${vars.transition.timing.ease}`;
 
 const base = {
   width: '40px',
   height: '40px',
-  borderRadius: '8px',
+  borderRadius: vars.radius.md,
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -11,11 +14,11 @@ const base = {
   padding: 0,
   cursor: 'pointer',
   fontFamily: 'var(--font-pretendard), sans-serif',
-  fontSize: 'var(--font-size-sm)',
-  fontWeight: 500,
-  lineHeight: 'normal',
+  fontSize: vars.fontSize.sm,
+  fontWeight: vars.fontWeight.medium,
+  lineHeight: vars.lineHeight.normal,
   boxSizing: 'border-box',
-  transition: 'background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease',
+  transition,
   outline: 'none',
 };
 
@@ -24,28 +27,28 @@ export const control = styleVariants({
     base,
     {
       backgroundColor: 'transparent',
-      color: 'var(--gray-gray400, #A3A3A3)',
+      color: vars.color.gray[400],
       selectors: {
         '&:hover': {
-          backgroundColor: 'var(--gray-gray200, #E5E5E5)',
-          color: 'var(--gray-gray800, #262626)',
+          backgroundColor: vars.color.gray[200],
+          color: vars.color.gray[800],
         },
         '&:focus-visible': {
-          boxShadow: '0 0 0 2px rgba(38, 38, 38, 0.3)',
+          boxShadow: `0 0 0 2px ${vars.color.gray[800]}4D`,
         },
       },
     },
   ],
   selected: {
-    backgroundColor: 'var(--gray-gray800, #262626)',
-    color: 'var(--brand-yellow, #FFC117)',
+    backgroundColor: vars.color.gray[800],
+    color: vars.color.brand.point,
     selectors: {
       '&:hover': {
-        backgroundColor: 'var(--gray-gray900, #171717)',
-        color: 'var(--brand-yellow, #FFC117)',
+        backgroundColor: vars.color.gray[900],
+        color: vars.color.brand.point,
       },
       '&:focus-visible': {
-        boxShadow: '0 0 0 2px var(--brand-yellow, #FFC117)',
+        boxShadow: `0 0 0 2px ${vars.color.brand.point}`,
       },
     },
   },

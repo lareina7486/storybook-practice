@@ -9,7 +9,6 @@ import * as styles from './Modal.css.js';
 export function Modal({
   open,
   onClose,
-  size = 'small',
   variant = 'dialog',
   icon,
   message,
@@ -48,7 +47,7 @@ export function Modal({
       aria-labelledby={isForm ? 'modal-title' : undefined}
     >
       <div
-        className={clsx(styles.panel[size])}
+        className={styles.panel}
         onClick={(e) => e.stopPropagation()}
       >
         {isForm ? (
@@ -98,10 +97,10 @@ export function Modal({
             {icon && <div className={styles.iconSlot}>{icon}</div>}
             {message && <p className={styles.message}>{message}</p>}
             <div className={styles.actions}>
-              <Button variant="outline" size="pc" onClick={onSecondary ?? onClose}>
+              <Button variant="outline" onClick={onSecondary ?? onClose}>
                 {secondaryLabel}
               </Button>
-              <Button variant="solid" size="pc" onClick={onPrimary}>
+              <Button variant="solid" onClick={onPrimary}>
                 {primaryLabel}
               </Button>
             </div>

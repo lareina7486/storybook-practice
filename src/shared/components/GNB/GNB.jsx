@@ -6,16 +6,15 @@ import * as styles from './GNB.css.js';
 
 /**
  * Figma 4711-52571 GNB (Global Navigation Bar)
- * @param {'large'|'medium'|'small'} size - large 1920/60px, medium 744/60px, small 375/56px
- * @param {'member'|'member-login'|'admin'} status - member: 로그인 버튼만 | member-login: 알림+프로필(멤버) | admin: 탭+프로필(관리자)
+ * 반응형: ~767px small, 768px~ large (미디어 쿼리)
+ * @param {'guest'|'member'|'admin'} status - guest: 로그인 버튼 | member: 알림+멤버 프로필 | admin: 탭+관리자 프로필
  * @param {string} [logoHref] - 로고 링크 (없으면 span)
  * @param {string} [logoText] - 로고 텍스트 (기본 'Docthru')
  * @param {Array<{ label: string, active?: boolean, href?: string, onClick?: function }>} [tabs] - admin일 때 탭 목록
- * @param {function} [onLogin] - 로그인 버튼 클릭 (member일 때)
+ * @param {function} [onLogin] - 로그인 버튼 클릭 (guest일 때)
  */
 export function GNB({
-  size = 'large',
-  status = 'member',
+  status = 'guest',
   logoHref,
   logoText = 'Docthru',
   tabs = [],
@@ -23,23 +22,19 @@ export function GNB({
   onTabChange,
   className,
 }) {
-  const isSmall = size === 'small';
   const isAdmin = status === 'admin';
-  const isMemberLogin = status === 'member-login';
+  const isMember = status === 'member';
 
   const LogoWrapper = logoHref ? 'a' : 'span';
   const logoProps = logoHref ? { href: logoHref } : {};
 
   return (
-    <header
-      className={clsx(styles.gnb[isSmall ? 'small' : 'default'], className)}
-      role="banner"
-    >
+    <header className={clsx(styles.gnb, className)} role="banner">
       <div className={styles.left}>
-        <LogoWrapper
-          className={styles.logo[isSmall ? 'small' : 'large']}
-          {...logoProps}
-        >
+        <LogoWrapper className={styles.logo} {...logoProps}>
+          <span className={styles.logoIcon}>
+            <Icon name="ic_logo" width={28} height={28} aria-hidden />
+          </span>
           {logoText}
         </LogoWrapper>
       </div>
@@ -67,19 +62,19 @@ export function GNB({
       )}
 
       <div className={styles.right}>
-        {status === 'member' && (
+        {status === 'guest' && (
           <button
             type="button"
-            className={styles.loginButton[isSmall ? 'small' : 'default']}
+            className={styles.loginButton}
             onClick={onLogin}
           >
             로그인
           </button>
         )}
-        {isMemberLogin && (
+        {isMember && (
           <>
             <span className={styles.profileWrap} aria-hidden>
-              <Icon name="ic_bell" width={24} height={24} />
+              <Icon name="ic_bell_notification" width={24} height={24} />
             </span>
             <span className={styles.profileWrap} aria-hidden>
               <Icon name="ic_profile_member" width={32} height={32} />

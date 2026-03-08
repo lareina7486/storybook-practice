@@ -1,5 +1,6 @@
 import { style, styleVariants } from '@vanilla-extract/css';
 import { breakpoint } from '../breakpoints.css.js';
+import { vars } from '../tokens.css.js';
 
 /**
  * Figma component 4711-52320 기준 Button 스타일
@@ -7,17 +8,19 @@ import { breakpoint } from '../breakpoints.css.js';
  * size: pc | mobile
  */
 
+const transition = `background-color ${vars.transition.duration.normal} ${vars.transition.timing.ease}, color ${vars.transition.duration.normal} ${vars.transition.timing.ease}, border-color ${vars.transition.duration.normal} ${vars.transition.timing.ease}, box-shadow ${vars.transition.duration.normal} ${vars.transition.timing.ease}, transform ${vars.transition.duration.fast} ${vars.transition.timing.ease}`;
+
 export const base = style({
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
-  gap: '6px',
+  gap: vars.space.sm,
   fontFamily: 'var(--font-pretendard), sans-serif',
-  lineHeight: 'normal',
+  lineHeight: vars.lineHeight.normal,
   cursor: 'pointer',
   border: 'none',
   boxSizing: 'border-box',
-  transition: 'background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease',
+  transition,
   outline: 'none',
   selectors: {
     '&:active:not(:disabled)': {
@@ -29,96 +32,96 @@ export const base = style({
 export const size = styleVariants({
   pc: {
     height: '48px',
-    padding: '0 20px',
-    fontSize: 'var(--font-size-base)',
-    fontWeight: 600,
-    borderRadius: '12px',
+    padding: `0 ${vars.space.xl}`,
+    fontSize: vars.fontSize.base,
+    fontWeight: vars.fontWeight.semibold,
+    borderRadius: vars.radius.lg,
   },
   pcMedium: {
     height: '40px',
-    padding: '0 20px',
-    fontSize: 'var(--font-size-base)',
-    fontWeight: 600,
-    borderRadius: '12px',
+    padding: `0 ${vars.space.xl}`,
+    fontSize: vars.fontSize.base,
+    fontWeight: vars.fontWeight.semibold,
+    borderRadius: vars.radius.lg,
   },
   mobile: {
     height: '32px',
-    padding: '0 16px',
-    fontSize: 'var(--font-size-sm)',
-    fontWeight: 600,
-    borderRadius: '10px',
+    padding: `0 ${vars.space.lg}`,
+    fontSize: vars.fontSize.sm,
+    fontWeight: vars.fontWeight.semibold,
+    borderRadius: vars.radius.md,
   },
 });
 
 export const variant = styleVariants({
   solid: {
-    backgroundColor: 'var(--gray-gray800, #262626)',
-    color: 'var(--white, #ffffff)',
+    backgroundColor: vars.color.gray[800],
+    color: vars.color.white,
     selectors: {
       '&:hover:not(:disabled)': {
-        backgroundColor: 'var(--gray-gray900, #171717)',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+        backgroundColor: vars.color.gray[900],
+        boxShadow: vars.shadow.lg,
       },
       '&:focus-visible': {
-        boxShadow: '0 0 0 3px rgba(38, 38, 38, 0.4)',
+        boxShadow: `0 0 0 3px ${vars.color.gray[800]}40`,
       },
       '&:active:not(:disabled)': {
-        backgroundColor: 'var(--gray-gray900, #171717)',
-        boxShadow: '0 1px 4px rgba(0,0,0,0.2)',
+        backgroundColor: vars.color.gray[900],
+        boxShadow: vars.shadow.md,
       },
     },
   },
   solidInactive: {
-    backgroundColor: 'var(--gray-gray200, #E5E5E5)',
-    color: 'var(--gray-gray500, #737373)',
+    backgroundColor: vars.color.gray[200],
+    color: vars.color.gray[500],
     selectors: {
       '&:hover:not(:disabled)': {
-        backgroundColor: 'var(--gray-gray300, #D4D4D4)',
+        backgroundColor: vars.color.gray[300],
       },
       '&:focus-visible': {
-        boxShadow: '0 0 0 3px rgba(115, 115, 115, 0.3)',
+        boxShadow: `0 0 0 3px ${vars.color.gray[500]}4D`,
       },
     },
   },
   outline: {
     height: '40px',
-    padding: '2px 16px 3px',
-    backgroundColor: 'var(--white, #ffffff)',
-    border: '1px solid var(--gray-gray800, #262626)',
-    color: 'var(--gray-gray800, #262626)',
-    fontSize: 'var(--font-size-base)',
-    fontWeight: 600,
-    borderRadius: '12px',
+    padding: `2px ${vars.space.lg} 3px`,
+    backgroundColor: vars.color.white,
+    border: `1px solid ${vars.color.gray[800]}`,
+    color: vars.color.gray[800],
+    fontSize: vars.fontSize.base,
+    fontWeight: vars.fontWeight.semibold,
+    borderRadius: vars.radius.lg,
     selectors: {
       '&:hover:not(:disabled)': {
-        backgroundColor: 'var(--gray-gray50, #FAFAFA)',
-        boxShadow: '0 2px 6px rgba(0,0,0,0.06)',
+        backgroundColor: vars.color.gray[50],
+        boxShadow: vars.shadow.sm,
       },
       '&:focus-visible': {
-        boxShadow: '0 0 0 3px rgba(38, 38, 38, 0.25)',
+        boxShadow: `0 0 0 3px ${vars.color.gray[800]}40`,
       },
       '&:active:not(:disabled)': {
-        backgroundColor: 'var(--gray-gray200, #E5E5E5)',
+        backgroundColor: vars.color.gray[200],
       },
     },
     '@media': {
       [breakpoint.sm]: {
         height: '32px',
-        fontSize: 'var(--font-size-sm)',
-        borderRadius: '10px',
+        fontSize: vars.fontSize.sm,
+        borderRadius: vars.radius.md,
       },
     },
   },
   filledTonal: {
     backgroundColor: '#FFE7E7',
-    color: '#F24744',
+    color: vars.color.semantic.error,
     selectors: {
       '&:hover:not(:disabled)': {
         backgroundColor: '#ffd4d4',
-        boxShadow: '0 2px 8px rgba(242, 71, 68, 0.25)',
+        boxShadow: `0 2px 8px ${vars.color.semantic.error}40`,
       },
       '&:focus-visible': {
-        boxShadow: '0 0 0 3px rgba(242, 71, 68, 0.35)',
+        boxShadow: `0 0 0 3px ${vars.color.semantic.error}59`,
       },
       '&:active:not(:disabled)': {
         backgroundColor: '#ffc0c0',
@@ -127,19 +130,19 @@ export const variant = styleVariants({
   },
   transparent: {
     height: '32px',
-    padding: '4px 12px',
-    borderRadius: '12px',
+    padding: `${vars.space.xs} ${vars.space.md}`,
+    borderRadius: vars.radius.lg,
     backgroundColor: 'rgba(246, 248, 250, 0.5)',
-    color: 'var(--gray-gray700, #404040)',
-    fontSize: 'var(--font-size-base)',
-    fontWeight: 700,
+    color: vars.color.gray[700],
+    fontSize: vars.fontSize.base,
+    fontWeight: vars.fontWeight.bold,
     selectors: {
       '&:hover:not(:disabled)': {
         backgroundColor: 'rgba(230, 234, 238, 0.8)',
-        boxShadow: '0 1px 4px rgba(0,0,0,0.06)',
+        boxShadow: vars.shadow.xs,
       },
       '&:focus-visible': {
-        boxShadow: '0 0 0 3px rgba(64, 64, 64, 0.2)',
+        boxShadow: `0 0 0 3px ${vars.color.gray[700]}33`,
       },
       '&:active:not(:disabled)': {
         backgroundColor: 'rgba(214, 218, 222, 0.9)',
@@ -147,53 +150,53 @@ export const variant = styleVariants({
     },
     '@media': {
       [breakpoint.sm]: {
-        fontSize: 'var(--font-size-sm)',
-        borderRadius: '10px',
+        fontSize: vars.fontSize.sm,
+        borderRadius: vars.radius.md,
       },
     },
   },
   filled: {
     height: '40px',
-    padding: '0 16px',
-    backgroundColor: 'var(--brand-yellow, #FFC117)',
-    border: '2px solid var(--gray-gray800, #262626)',
-    color: 'var(--gray-gray800, #262626)',
-    fontSize: 'var(--font-size-sm)',
-    fontWeight: 700,
-    borderRadius: '12px',
+    padding: `0 ${vars.space.lg}`,
+    backgroundColor: vars.color.brand.point,
+    border: `2px solid ${vars.color.gray[800]}`,
+    color: vars.color.gray[800],
+    fontSize: vars.fontSize.sm,
+    fontWeight: vars.fontWeight.bold,
+    borderRadius: vars.radius.lg,
     selectors: {
       '&:hover:not(:disabled)': {
         backgroundColor: '#e6ad15',
-        boxShadow: '0 2px 8px rgba(255, 193, 23, 0.4)',
+        boxShadow: `0 2px 8px ${vars.color.brand.point}66`,
       },
       '&:focus-visible': {
-        boxShadow: '0 0 0 3px rgba(255, 193, 23, 0.5)',
+        boxShadow: `0 0 0 3px ${vars.color.brand.point}80`,
       },
       '&:active:not(:disabled)': {
         backgroundColor: '#cc9a12',
-        boxShadow: '0 1px 4px rgba(0,0,0,0.15)',
+        boxShadow: vars.shadow.md,
       },
     },
   },
   outlineIcon: {
     height: '33px',
-    padding: '0 16px',
-    backgroundColor: 'var(--white, #ffffff)',
-    border: '1px solid var(--gray-gray800, #262626)',
-    color: 'var(--gray-gray800, #262626)',
-    fontSize: 'var(--font-size-sm)',
-    fontWeight: 700,
-    borderRadius: '30.5px',
+    padding: `0 ${vars.space.lg}`,
+    backgroundColor: vars.color.white,
+    border: `1px solid ${vars.color.gray[800]}`,
+    color: vars.color.gray[800],
+    fontSize: vars.fontSize.sm,
+    fontWeight: vars.fontWeight.bold,
+    borderRadius: vars.radius.full,
     selectors: {
       '&:hover:not(:disabled)': {
-        backgroundColor: 'var(--gray-gray50, #FAFAFA)',
-        boxShadow: '0 2px 6px rgba(0,0,0,0.08)',
+        backgroundColor: vars.color.gray[50],
+        boxShadow: vars.shadow.sm,
       },
       '&:focus-visible': {
-        boxShadow: '0 0 0 3px rgba(38, 38, 38, 0.25)',
+        boxShadow: `0 0 0 3px ${vars.color.gray[800]}40`,
       },
       '&:active:not(:disabled)': {
-        backgroundColor: 'var(--gray-gray200, #E5E5E5)',
+        backgroundColor: vars.color.gray[200],
       },
     },
   },
@@ -205,8 +208,19 @@ export const icon = style({
   flexShrink: 0,
 });
 
+export const linkInner = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flex: 1,
+  minWidth: 0,
+  textDecoration: 'none',
+  color: 'inherit',
+  font: 'inherit',
+});
+
 export const disabled = style({
-  opacity: 0.5,
+  opacity: vars.opacity.disabled,
   cursor: 'not-allowed',
   pointerEvents: 'none',
   transition: 'none',

@@ -21,10 +21,6 @@ const meta = {
       ],
       description: 'Figma 4711-52320 버튼 변형',
     },
-    size: {
-      control: 'radio',
-      options: ['pc', 'mobile'],
-    },
     status: {
       control: 'boolean',
       description: 'solid일 때만: true=활성, false=비활성',
@@ -39,7 +35,6 @@ const meta = {
   },
   args: {
     variant: 'solid',
-    size: 'pc',
     status: true,
     disabled: false,
     children: '승인하기',
@@ -52,42 +47,42 @@ export const Default = (args) => <Button {...args}>{args.children}</Button>;
 
 /** Figma solid (pc-large, 활성): bg #262626, 48px, 12px radius */
 export const Solid = (args) => (
-  <Button {...args} variant="solid" size="pc" status={true}>
+  <Button {...args} variant="solid" status={true}>
     승인하기
   </Button>
 );
 
 /** Figma solid 비활성: bg #E5E5E5, 텍스트 #737373 */
 export const SolidInactive = (args) => (
-  <Button {...args} variant="solid" size="pc" status={false}>
+  <Button {...args} variant="solid" status={false}>
     승인하기
   </Button>
 );
 
 /** Figma outline: 흰 배경, 테두리 #262626, 40px */
 export const Outline = (args) => (
-  <Button {...args} variant="outline" size="pc">
+  <Button {...args} variant="outline">
     임시저장
   </Button>
 );
 
 /** Figma outline mobile: 32px, 10px radius */
 export const OutlineMobile = (args) => (
-  <Button {...args} variant="outline" size="mobile">
+  <Button {...args} variant="outline">
     임시저장
   </Button>
 );
 
 /** Figma filled-tonal: 배경 #FFE7E7, 텍스트 #F24744 */
 export const FilledTonal = (args) => (
-  <Button {...args} variant="filledTonal" size="pc">
+  <Button {...args} variant="filledTonal">
     거절하기
   </Button>
 );
 
 /** Figma transparent: 반투명 배경, Bold 16px #404040 */
 export const Transparent = (args) => (
-  <Button {...args} variant="transparent" size="pc">
+  <Button {...args} variant="transparent">
     링크 열기
   </Button>
 );
@@ -97,7 +92,6 @@ export const TransparentWithIcon = (args) => (
   <Button
     {...args}
     variant="transparent"
-    size="pc"
     icon={<Icon name="icon_arrow_right" width={24} height={24} />}
     iconPosition="right"
   >
@@ -107,7 +101,7 @@ export const TransparentWithIcon = (args) => (
 
 /** Figma filled: 브랜드 옐로우 #FFC117, 테두리 #262626, Bold 14px */
 export const Filled = (args) => (
-  <Button {...args} variant="filled" size="pc">
+  <Button {...args} variant="filled">
     원문 보기
   </Button>
 );
@@ -141,7 +135,6 @@ export const SolidWithLeftIcon = (args) => (
   <Button
     {...args}
     variant="solid"
-    size="pc"
     icon={<Icon name="icon_plus" width={16} height={16} />}
     iconPosition="left"
   >
@@ -167,22 +160,22 @@ export const AllVariants = () => (
         alignItems: 'center',
       }}
     >
-      <Button variant="solid" size="pc" status={true}>
+      <Button variant="solid" status={true}>
         승인하기
       </Button>
-      <Button variant="solid" size="pc" status={false}>
+      <Button variant="solid" status={false}>
         승인하기
       </Button>
-      <Button variant="outline" size="pc">
+      <Button variant="outline">
         임시저장
       </Button>
-      <Button variant="outline" size="mobile">
+      <Button variant="outline">
         임시저장
       </Button>
-      <Button variant="filledTonal" size="pc">
+      <Button variant="filledTonal">
         거절하기
       </Button>
-      <Button variant="transparent" size="pc">
+      <Button variant="transparent">
         링크 열기
       </Button>
       <Button variant="filled">원문 보기</Button>

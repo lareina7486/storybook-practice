@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect } from 'react';
-import clsx from 'clsx';
 import * as styles from './Popup.css.js';
 
 export function Popup({
@@ -9,7 +8,6 @@ export function Popup({
   onClose,
   message = '가입이 완료되었습니다!',
   confirmLabel = '확인',
-  size = 'small',
 }) {
   useEffect(() => {
     if (!open) return;
@@ -35,7 +33,7 @@ export function Popup({
       aria-labelledby="popup-message"
     >
       <div
-        className={clsx(styles.panel, styles.size[size])}
+        className={styles.panel}
         onClick={(e) => e.stopPropagation()}
       >
         <p id="popup-message" className={styles.message}>

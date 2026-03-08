@@ -1,31 +1,32 @@
 import { style, styleVariants } from '@vanilla-extract/css';
+import { vars } from '../tokens.css.js';
 
 export const inputRoot = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '8px',
+  gap: vars.space.sm,
   width: '350px',
 });
 
 export const label = style({
   fontFamily:
     'var(--font-pretendard), system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
-  fontSize: 'var(--font-size-sm)',
-  fontWeight: 500,
-  lineHeight: 'normal',
-  color: 'var(--gray-gray900, #171717)',
+  fontSize: vars.fontSize.sm,
+  fontWeight: vars.fontWeight.medium,
+  lineHeight: vars.lineHeight.normal,
+  color: vars.color.gray[900],
 });
 
 const fieldBase = style({
   display: 'flex',
   alignItems: 'center',
   padding: '11px 20px',
-  borderRadius: '12px',
-  backgroundColor: 'var(--white, #ffffff)',
-  border: '1px solid var(--gray-gray200, #E5E5E5)',
+  borderRadius: vars.radius.lg,
+  backgroundColor: vars.color.white,
+  border: `1px solid ${vars.color.gray[200]}`,
   selectors: {
     '&:focus-within': {
-      borderColor: 'var(--brand-black, #262626)',
+      borderColor: vars.color.brand.background,
     },
   },
 });
@@ -35,7 +36,7 @@ export const field = styleVariants({
   error: [
     fieldBase,
     {
-      borderColor: 'var(--red-error, #EB3E3E)',
+      borderColor: vars.color.semantic.error,
     },
   ],
 });
@@ -47,13 +48,13 @@ export const input = style({
   background: 'transparent',
   fontFamily:
     'var(--font-pretendard), system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
-  fontSize: 'var(--font-size-base)',
-  fontWeight: 400,
-  lineHeight: 'normal',
-  color: 'var(--gray-gray900, #171717)',
+  fontSize: vars.fontSize.base,
+  fontWeight: vars.fontWeight.regular,
+  lineHeight: vars.lineHeight.normal,
+  color: vars.color.gray[900],
   selectors: {
     '&::placeholder': {
-      color: 'var(--gray-gray400, #A3A3A3)',
+      color: vars.color.gray[400],
     },
   },
 });
@@ -62,7 +63,7 @@ export const iconButton = style({
   border: 'none',
   background: 'transparent',
   padding: 0,
-  marginLeft: '8px',
+  marginLeft: vars.space.sm,
   cursor: 'pointer',
   display: 'flex',
   alignItems: 'center',
@@ -70,12 +71,12 @@ export const iconButton = style({
 });
 
 const helperTextBase = style({
-  marginLeft: '8px',
+  marginLeft: vars.space.sm,
   fontFamily:
     'var(--font-pretendard), system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
-  fontSize: 'var(--font-size-2xs)',
+  fontSize: vars.fontSize['2xs'],
   lineHeight: '16px',
-  color: 'var(--gray-gray600, #525252)',
+  color: vars.color.gray[600],
 });
 
 export const helperText = styleVariants({
@@ -83,7 +84,7 @@ export const helperText = styleVariants({
   error: [
     helperTextBase,
     {
-      color: 'var(--red-error, #EB3E3E)',
+      color: vars.color.semantic.error,
     },
   ],
 });

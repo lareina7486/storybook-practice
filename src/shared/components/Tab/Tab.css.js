@@ -1,4 +1,5 @@
 import { style, styleVariants } from '@vanilla-extract/css';
+import { vars } from '../tokens.css.js';
 
 export const list = style({
   display: 'flex',
@@ -14,20 +15,20 @@ const itemBase = style({
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  padding: '16px 24px',
+  padding: `${vars.space.lg} ${vars.space.xl}`,
   minHeight: '53px',
   fontFamily: 'var(--font-pretendard), sans-serif',
-  fontSize: '18px',
-  fontWeight: 600,
-  color: 'var(--gray-gray500, #737373)',
+  fontSize: vars.fontSize.md,
+  fontWeight: vars.fontWeight.semibold,
+  color: vars.color.gray[500],
   cursor: 'pointer',
   background: 'none',
   border: 'none',
   gap: '13px',
-  transition: 'color 0.15s',
+  transition: `color ${vars.transition.duration.fast} ${vars.transition.timing.ease}`,
   selectors: {
     '&:hover': {
-      color: 'var(--gray-gray700, #404040)',
+      color: vars.color.gray[700],
     },
   },
 });
@@ -37,7 +38,7 @@ export const item = styleVariants({
   active: [
     itemBase,
     {
-      color: 'var(--gray-gray800, #262626)',
+      color: vars.color.gray[800],
     },
   ],
 });
@@ -45,6 +46,6 @@ export const item = styleVariants({
 export const indicator = style({
   width: '100%',
   height: '3px',
-  backgroundColor: 'var(--gray-gray800, #262626)',
+  backgroundColor: vars.color.gray[800],
   borderRadius: 0,
 });

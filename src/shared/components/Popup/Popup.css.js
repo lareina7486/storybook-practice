@@ -1,41 +1,40 @@
-import { style, styleVariants } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
+import { vars } from '../tokens.css.js';
+import { breakpoint } from '../breakpoints.css.js';
 
 export const overlay = style({
   position: 'fixed',
   inset: 0,
-  zIndex: 1000,
+  zIndex: vars.zIndex.dropdown,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  backgroundColor: 'rgba(0, 0, 0, 0.4)',
-  padding: '24px',
+  backgroundColor: `rgba(0, 0, 0, ${vars.opacity.overlay})`,
+  padding: vars.space.xl,
   boxSizing: 'border-box',
 });
 
 export const panel = style({
   position: 'relative',
-  backgroundColor: 'var(--white, #ffffff)',
-  border: '2px solid var(--gray-gray800, #262626)',
-  borderRadius: '8px',
+  width: '327px',
+  minHeight: '220px',
+  padding: '40px 24px 28px',
+  backgroundColor: vars.color.white,
+  border: `2px solid ${vars.color.gray[800]}`,
+  borderRadius: vars.radius.md,
   fontFamily: 'var(--font-pretendard), sans-serif',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
   boxSizing: 'border-box',
-});
-
-export const size = styleVariants({
-  small: {
-    width: '327px',
-    minHeight: '220px',
-    padding: '40px 24px 28px',
-  },
-  large: {
-    width: '100%',
-    maxWidth: '540px',
-    minHeight: '250px',
-    padding: '48px 24px 32px',
+  '@media': {
+    [breakpoint.md]: {
+      width: '100%',
+      maxWidth: '540px',
+      minHeight: '250px',
+      padding: '48px 24px 32px',
+    },
   },
 });
 
@@ -44,11 +43,11 @@ export const message = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  marginBottom: '24px',
+  marginBottom: vars.space.xl,
   fontFamily: 'var(--font-pretendard), sans-serif',
-  fontSize: 'var(--font-size-base)',
-  fontWeight: 500,
-  color: 'var(--gray-gray800, #262626)',
+  fontSize: vars.fontSize.base,
+  fontWeight: vars.fontWeight.medium,
+  color: vars.color.gray[800],
   textAlign: 'center',
 });
 
@@ -60,12 +59,12 @@ export const buttonWrap = style({
 export const confirmButton = style({
   width: '120px',
   height: '40px',
-  borderRadius: '12px',
-  backgroundColor: 'var(--gray-gray800, #262626)',
-  color: 'var(--white, #ffffff)',
+  borderRadius: vars.radius.lg,
+  backgroundColor: vars.color.gray[800],
+  color: vars.color.white,
   border: 'none',
   fontFamily: 'var(--font-pretendard), sans-serif',
-  fontSize: 'var(--font-size-base)',
-  fontWeight: 600,
+  fontSize: vars.fontSize.base,
+  fontWeight: vars.fontWeight.semibold,
   cursor: 'pointer',
 });
