@@ -1,8 +1,3 @@
-// 아이콘 파일 경로 매핑
-// 규칙: Figma 아이콘 이름과 동일한 키를 사용하고,
-// 실제 SVG 파일은 `public/icons/{name}.svg` 로 export 해 두면 됩니다.
-// 예: `ic_arrow_down` → `public/icons/ic_arrow_down.svg`
-
 export const ICON_BASE_PATH = '/icons';
 
 export const iconPaths = {
@@ -41,7 +36,7 @@ export const iconPaths = {
   ic_toggle_down: `${ICON_BASE_PATH}/ic_toggle_down.svg`,
   ic_toggle_up: `${ICON_BASE_PATH}/ic_toggle_up.svg`,
   ic_filter: `${ICON_BASE_PATH}/ic_filter.svg`,
-  ic_bell: `${ICON_BASE_PATH}/ic_bell.svg`,
+  ic_bell_notification: `${ICON_BASE_PATH}/ic_bell_notification.svg`,
 
   // 캘린더, 비밀번호 가시성 등
   icon_calendar: `${ICON_BASE_PATH}/icon_calendar.svg`,
@@ -59,4 +54,7 @@ export const iconPaths = {
   // 기존에 이미 있던 화살표/데드라인 아이콘 이름도 함께 매핑
   ic_arrow_left: `${ICON_BASE_PATH}/ic_arrow_left.svg`,
   ic_arrow_right: `${ICON_BASE_PATH}/ic_arrow_right.svg`,
+
+  // 로고
+  ic_logo: `${ICON_BASE_PATH}/ic_logo.svg`,
 };
