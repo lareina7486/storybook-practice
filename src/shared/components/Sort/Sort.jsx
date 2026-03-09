@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { Button } from '@/shared/components/Button';
 import { Icon } from '@/shared/icons/Icon';
 import * as styles from './Sort.css.js';
 
@@ -11,19 +11,19 @@ export function Sort({
   ...rest
 }) {
   return (
-    <button
+    <Button
       type="button"
+      variant="transparent"
       className={styles.root}
       onClick={onClick}
       aria-pressed={active}
+      icon={<Icon name="toggle_down" width={24} height={24} aria-hidden />}
+      iconPosition="right"
       {...rest}
     >
       <span className={styles.label[active ? 'active' : 'default']}>
         {label}
       </span>
-      <span className={styles.iconWrap}>
-        <Icon name="toggle_down" width={24} height={24} aria-hidden />
-      </span>
-    </button>
+    </Button>
   );
 }

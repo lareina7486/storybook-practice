@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { Button } from '@/shared/components/Button';
 import * as styles from './Popup.css.js';
 
 export function Popup({
@@ -40,13 +41,14 @@ export function Popup({
           {message}
         </p>
         <div className={styles.buttonWrap}>
-          <button
+          <Button
             type="button"
+            variant="solid"
             className={styles.confirmButton}
             onClick={onClose}
           >
             {confirmLabel}
-          </button>
+          </Button>
         </div>
       </div>
     </div>

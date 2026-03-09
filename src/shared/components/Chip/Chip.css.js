@@ -107,7 +107,7 @@ export const chipCategory = styleVariants({
     {
       height: '26px',
       padding: '5px 7px',
-      borderRadius: '8px',
+      borderRadius: vars.radius.md,
       backgroundColor: 'var(--white, #ffffff)',
       border: '1px solid var(--gray-gray300, #D4D4D4)',
       color: 'var(--gray-gray600, #525252)',
@@ -125,7 +125,7 @@ export const chipStatus = styleVariants({
     {
       height: '24px',
       padding: '4px 8px',
-      borderRadius: '4px',
+      borderRadius: vars.radius.sm,
       backgroundColor: '#FFFDE7',
       color: '#F2BC00',
       fontSize: 'var(--font-size-xs)',
@@ -139,7 +139,7 @@ export const chipStatus = styleVariants({
     {
       height: '24px',
       padding: '4px 8px',
-      borderRadius: '4px',
+      borderRadius: vars.radius.sm,
       backgroundColor: '#FFF0F0',
       color: '#E54946',
       fontSize: 'var(--font-size-xs)',
@@ -153,7 +153,7 @@ export const chipStatus = styleVariants({
     {
       height: '24px',
       padding: '4px 8px',
-      borderRadius: '4px',
+      borderRadius: vars.radius.sm,
       backgroundColor: '#DFF0FF',
       color: '#4095DE',
       fontSize: 'var(--font-size-xs)',
@@ -167,7 +167,7 @@ export const chipStatus = styleVariants({
     {
       height: '24px',
       padding: '4px 8px',
-      borderRadius: '4px',
+      borderRadius: vars.radius.sm,
       backgroundColor: 'var(--gray-gray200, #E5E5E5)',
       color: 'var(--gray-gray500, #737373)',
       fontSize: 'var(--font-size-xs)',

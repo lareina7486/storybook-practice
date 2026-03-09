@@ -1,5 +1,6 @@
 'use client';
 
+import { Button } from '@/shared/components/Button';
 import { Icon } from '@/shared/icons/Icon';
 import { Control } from './Control.jsx';
 import * as styles from './PageIndicator.css.js';
@@ -29,15 +30,15 @@ export const PageIndicator = ({ current, total, onChange }) => {
 
   return (
     <div className={styles.pageIndicator}>
-      <button
+      <Button
         type="button"
+        variant="transparent"
         className={styles.arrowButton}
         onClick={handlePrev}
         disabled={!canPrev}
         aria-label="이전 페이지"
-      >
-        <Icon name="arrow_left" width={40} height={40} aria-hidden />
-      </button>
+        icon={<Icon name="arrow_left" width={40} height={40} aria-hidden />}
+      />
       {Array.from({ length: windowLength }).map((_, i) => {
         const step = start + i;
         return (
@@ -51,15 +52,15 @@ export const PageIndicator = ({ current, total, onChange }) => {
           </Control>
         );
       })}
-      <button
+      <Button
         type="button"
+        variant="transparent"
         className={styles.arrowButton}
         onClick={handleNext}
         disabled={!canNext}
         aria-label="다음 페이지"
-      >
-        <Icon name="arrow_right" width={40} height={40} aria-hidden />
-      </button>
+        icon={<Icon name="arrow_right" width={40} height={40} aria-hidden />}
+      />
     </div>
   );
 };

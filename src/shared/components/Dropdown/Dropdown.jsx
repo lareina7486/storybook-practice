@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import clsx from 'clsx';
+import { Button } from '@/shared/components/Button';
 import { Icon } from '@/shared/icons/Icon';
 import * as styles from './Dropdown.css.js';
 
@@ -26,23 +26,26 @@ export function Dropdown({ label = '카테고리', options = [], value, onChange
 
   return (
     <div className={styles.root} ref={ref}>
-      <button
+      <Button
         type="button"
+        variant="outline"
         className={styles.trigger[open ? 'active' : 'default']}
         onClick={() => setOpen((prev) => !prev)}
         aria-expanded={open}
         aria-haspopup="listbox"
         aria-label={label}
-      >
-        <span className={styles.triggerLabel}>{displayText}</span>
-        <span className={styles.triggerIcon} aria-hidden>
+        icon={
           <Icon
             name={open ? 'toggle_up' : 'toggle_down'}
             width={24}
             height={24}
+            aria-hidden
           />
-        </span>
-      </button>
+        }
+        iconPosition="right"
+      >
+        <span className={styles.triggerLabel}>{displayText}</span>
+      </Button>
       {open && (
         <ul
           className={styles.list}

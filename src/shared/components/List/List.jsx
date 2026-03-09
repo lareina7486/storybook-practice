@@ -1,5 +1,6 @@
 'use client';
 
+import { Button } from '@/shared/components/Button';
 import { Icon } from '@/shared/icons/Icon';
 import * as styles from './List.css.js';
 
@@ -35,23 +36,27 @@ export function ListRow({
         <span className={styles.role}>{role}</span>
       </div>
       <div className={styles.right}>
-        <button
+        <Button
           type="button"
+          variant="transparent"
           className={styles.likeCount}
           onClick={onLikeClick}
           aria-label="좋아요"
+          icon={<Icon name="heart_active" width={16} height={16} aria-hidden />}
+          iconPosition="left"
         >
-          <Icon name="heart_active" width={16} height={16} aria-hidden />
           {likeCountProp != null ? likeCountProp.toLocaleString() : '0'}
-        </button>
-        <button
+        </Button>
+        <Button
           type="button"
+          variant="transparent"
           className={styles.workLink}
           onClick={onWorkClick}
+          icon={<Icon name="arrow_right" width={16} height={16} aria-hidden />}
+          iconPosition="right"
         >
           작업물 보기
-          <Icon name="arrow_right" width={16} height={16} aria-hidden />
-        </button>
+        </Button>
       </div>
     </div>
   );

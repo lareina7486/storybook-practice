@@ -60,11 +60,10 @@ export default function LoginPage() {
               로그인
             </Button>
             <Button
-              type="button"
               variant="secondary"
               className={styles.submitButton}
               onClick={handleGoogleLogin}
-              icon={<Icon name="google" width={24} height={24} aria-hidden />}
+              icon={<Icon name="google" aria-hidden />}
               iconPosition="left"
             >
               Google로 시작하기

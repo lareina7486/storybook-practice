@@ -2,12 +2,6 @@ import { style, styleVariants } from '@vanilla-extract/css';
 import { breakpoint } from '../breakpoints.css.js';
 import { vars } from '../tokens.css.js';
 
-/**
- * Figma component 4711-52320 기준 Button 스타일
- * variant: solid | outline | filledTonal | transparent | filled | outlineIcon
- * size: pc | mobile
- */
-
 const transition = `background-color ${vars.transition.duration.normal} ${vars.transition.timing.ease}, color ${vars.transition.duration.normal} ${vars.transition.timing.ease}, border-color ${vars.transition.duration.normal} ${vars.transition.timing.ease}, box-shadow ${vars.transition.duration.normal} ${vars.transition.timing.ease}, transform ${vars.transition.duration.fast} ${vars.transition.timing.ease}`;
 
 export const base = style({
@@ -34,38 +28,16 @@ export const base = style({
   },
 });
 
-export const size = styleVariants({
-  pc: {
-    height: '48px',
-    padding: `0 ${vars.space.xl}`,
-    fontSize: vars.fontSize.base,
-    fontWeight: vars.fontWeight.semibold,
-    borderRadius: vars.radius.lg,
-  },
-  pcMedium: {
-    height: '40px',
-    padding: `0 ${vars.space.xl}`,
-    fontSize: vars.fontSize.base,
-    fontWeight: vars.fontWeight.semibold,
-    borderRadius: vars.radius.lg,
-  },
-  mobile: {
-    height: '32px',
-    padding: `0 ${vars.space.lg}`,
-    fontSize: vars.fontSize.sm,
-    fontWeight: vars.fontWeight.semibold,
-    borderRadius: vars.radius.md,
-  },
-});
-
 export const variant = styleVariants({
   solid: {
+    width: '153px',
     backgroundColor: vars.color.gray[800],
     color: vars.color.white,
     selectors: {
       '&:hover:not(:disabled)': {
         backgroundColor: vars.color.gray[900],
-        boxShadow: vars.shadow.lg,
+        boxShadow:
+          '0 8px 20px -4px rgba(0,0,0,0.25), 0 4px 10px -2px rgba(0,0,0,0.2)',
       },
       '&:focus-visible': {
         boxShadow: `0 0 0 3px ${vars.color.gray[800]}40`,
@@ -75,13 +47,28 @@ export const variant = styleVariants({
         boxShadow: vars.shadow.md,
       },
     },
+    '@media': {
+      // 작은 화면(sm 미만)에서만 높이·폰트·radius 축소
+      [breakpoint.maxSm]: {
+        height: '32px',
+        fontSize: vars.fontSize.sm,
+        borderRadius: vars.radius.md,
+      },
+    },
   },
   solidInactive: {
     backgroundColor: vars.color.gray[200],
     color: vars.color.gray[500],
+    cursor: 'default',
+    pointerEvents: 'none',
+    transition: 'none',
     selectors: {
       '&:hover:not(:disabled)': {
-        backgroundColor: vars.color.gray[300],
+        backgroundColor: vars.color.gray[200],
+        boxShadow: 'none',
+      },
+      '&:active:not(:disabled)': {
+        transform: 'none',
       },
       '&:focus-visible': {
         boxShadow: `0 0 0 3px ${vars.color.gray[500]}4D`,
@@ -99,8 +86,8 @@ export const variant = styleVariants({
     borderRadius: vars.radius.lg,
     selectors: {
       '&:hover:not(:disabled)': {
-        backgroundColor: vars.color.gray[50],
-        boxShadow: vars.shadow.sm,
+        backgroundColor: vars.color.gray[100],
+        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
       },
       '&:focus-visible': {
         boxShadow: `0 0 0 3px ${vars.color.gray[800]}40`,
@@ -109,21 +96,14 @@ export const variant = styleVariants({
         backgroundColor: vars.color.gray[200],
       },
     },
-    '@media': {
-      [breakpoint.sm]: {
-        height: '32px',
-        fontSize: vars.fontSize.sm,
-        borderRadius: vars.radius.md,
-      },
-    },
   },
   filledTonal: {
     backgroundColor: '#FFE7E7',
     color: vars.color.semantic.error,
     selectors: {
       '&:hover:not(:disabled)': {
-        backgroundColor: '#ffd4d4',
-        boxShadow: `0 2px 8px ${vars.color.semantic.error}40`,
+        backgroundColor: '#ffc9c9',
+        boxShadow: `0 4px 14px ${vars.color.semantic.error}50`,
       },
       '&:focus-visible': {
         boxShadow: `0 0 0 3px ${vars.color.semantic.error}59`,
@@ -137,20 +117,20 @@ export const variant = styleVariants({
     height: '32px',
     padding: `${vars.space.xs} ${vars.space.md}`,
     borderRadius: vars.radius.lg,
-    backgroundColor: 'rgba(246, 248, 250, 0.5)',
+    backgroundColor: 'rgba(246, 248, 250, 0.50)',
     color: vars.color.gray[700],
     fontSize: vars.fontSize.base,
     fontWeight: vars.fontWeight.bold,
     selectors: {
       '&:hover:not(:disabled)': {
-        backgroundColor: 'rgba(230, 234, 238, 0.8)',
-        boxShadow: vars.shadow.xs,
+        backgroundColor: 'rgba(212, 218, 224, 0.95)',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
       },
       '&:focus-visible': {
         boxShadow: `0 0 0 3px ${vars.color.gray[700]}33`,
       },
       '&:active:not(:disabled)': {
-        backgroundColor: 'rgba(214, 218, 222, 0.9)',
+        backgroundColor: 'rgba(200, 206, 212, 1)',
       },
     },
     '@media': {
@@ -172,7 +152,7 @@ export const variant = styleVariants({
     selectors: {
       '&:hover:not(:disabled)': {
         backgroundColor: '#e6ad15',
-        boxShadow: `0 2px 8px ${vars.color.brand.point}66`,
+        boxShadow: '0 6px 16px rgba(255, 193, 23, 0.45)',
       },
       '&:focus-visible': {
         boxShadow: `0 0 0 3px ${vars.color.brand.point}80`,
@@ -194,8 +174,8 @@ export const variant = styleVariants({
     borderRadius: vars.radius.full,
     selectors: {
       '&:hover:not(:disabled)': {
-        backgroundColor: vars.color.gray[50],
-        boxShadow: vars.shadow.sm,
+        backgroundColor: vars.color.gray[100],
+        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
       },
       '&:focus-visible': {
         boxShadow: `0 0 0 3px ${vars.color.gray[800]}40`,
@@ -217,14 +197,28 @@ export const variant = styleVariants({
     borderRadius: vars.radius.lg,
     selectors: {
       '&:hover:not(:disabled)': {
-        backgroundColor: vars.color.gray[50],
-        boxShadow: vars.shadow.sm,
+        backgroundColor: vars.color.gray[100],
+        boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
       },
       '&:focus-visible': {
         boxShadow: `0 0 0 3px ${vars.color.gray[400]}40`,
       },
       '&:active:not(:disabled)': {
         backgroundColor: vars.color.gray[200],
+      },
+    },
+  },
+  solidIcon: {
+    height: '39px',
+    borderRadius: vars.radius['2xl'],
+    backgroundColor: vars.color.gray[800],
+    color: vars.color.white,
+    selectors: {
+      ...base.selectors,
+      '&:hover:not(:disabled)': {
+        backgroundColor: vars.color.gray[900],
+        boxShadow:
+          '0 8px 20px -4px rgba(0,0,0,0.25), 0 4px 10px -2px rgba(0,0,0,0.2)',
       },
     },
   },
@@ -252,4 +246,22 @@ export const disabled = style({
   cursor: 'not-allowed',
   pointerEvents: 'none',
   transition: 'none',
+  backgroundColor: vars.color.gray[200],
+  color: vars.color.gray[500],
+  selectors: {
+    '&:hover:not(:disabled)': {
+      backgroundColor: vars.color.gray[200],
+      boxShadow: 'none',
+    },
+    '&:active:not(:disabled)': {
+      transform: 'none',
+    },
+    '&:focus-visible': {
+      boxShadow: `0 0 0 3px ${vars.color.gray[500]}4D`,
+    },
+  },
+});
+
+export const fullWidth = style({
+  width: '100%',
 });

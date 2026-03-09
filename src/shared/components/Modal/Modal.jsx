@@ -56,14 +56,14 @@ export function Modal({
               <h2 id="modal-title" className={styles.title}>
                 {titleProp}
               </h2>
-              <button
+              <Button
                 type="button"
+                variant="transparent"
                 className={styles.closeButton}
                 onClick={onClose}
                 aria-label="닫기"
-              >
-                <Icon name="out" width={24} height={24} />
-              </button>
+                icon={<Icon name="out" width={24} height={24} aria-hidden />}
+              />
             </div>
             {children ? (
               <div className={styles.body.default}>{children}</div>
@@ -81,13 +81,14 @@ export function Modal({
                   />
                 </div>
                 <div className={styles.submitRow}>
-                  <button
+                  <Button
                     type="button"
+                    variant="solid"
                     className={styles.submitButton}
                     onClick={onSubmit}
                   >
                     {submitLabel}
-                  </button>
+                  </Button>
                 </div>
               </div>
             )}

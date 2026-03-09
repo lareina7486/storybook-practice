@@ -58,6 +58,8 @@ export const iconPaths = {
   // 기존에 이미 있던 화살표/데드라인 아이콘 이름도 함께 매핑
   arrow_left: `${ICON_BASE_PATH}/arrow_left.svg`,
   arrow_right: `${ICON_BASE_PATH}/arrow_right.svg`,
+  arrow_right_2: `${ICON_BASE_PATH}/arrow_right_2.svg`,
+  click: `${ICON_BASE_PATH}/click.svg`,
 
   // 로고
   logo: `${ICON_BASE_PATH}/logo.svg`,

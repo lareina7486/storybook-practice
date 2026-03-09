@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import clsx from 'clsx';
+import { Button } from '@/shared/components/Button';
 import {
   field,
   helperText,
@@ -49,19 +50,21 @@ export const Input = ({
           />
         )} */}
         {isPassword && showPasswordToggle && (
-          <button
+          <Button
             type="button"
+            variant="transparent"
             className={iconButton}
             onClick={() => setVisible((prev) => !prev)}
             aria-label={visible ? '비밀번호 숨기기' : '비밀번호 보기'}
-          >
-            <Icon
-              name={visible ? 'btn_visibility_on' : 'btn_visibility_off'}
-              width={24}
-              height={24}
-              aria-hidden="true"
-            />
-          </button>
+            icon={
+              <Icon
+                name={visible ? 'btn_visibility_on' : 'btn_visibility_off'}
+                width={24}
+                height={24}
+                aria-hidden
+              />
+            }
+          />
         )}
       </div>
       {helper && (

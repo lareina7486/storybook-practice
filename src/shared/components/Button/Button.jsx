@@ -1,43 +1,52 @@
 'use client';
 
 import clsx from 'clsx';
+// import { Slot } from '@radix-ui/react-slot';
 import * as styles from './Button.css.js';
+import { Spinner } from '../Spinner/Spinner';
 
 export function Button({
+  // type = 'button',
+  // asChild = false,
   variant = 'solid',
-  status = true,
   icon,
   iconPosition = 'right',
+  loading = false,
+  fullWidth = false,
   disabled = false,
   children,
   className,
   ...props
 }) {
-  const classes = [
+  const isDisabled = disabled || loading;
+  const showIcon = icon && !loading;
+
+  const classes = clsx(
     styles.base,
-    variant === 'outline' && styles.variant.outline,
-    variant === 'outlineIcon' && styles.variant.outlineIcon,
-    variant === 'filled' && styles.variant.filled,
-    variant === 'solid' && styles.variant[status ? 'solid' : 'solidInactive'],
-    variant === 'filledTonal' && styles.variant.filledTonal,
-    variant === 'transparent' && styles.variant.transparent,
-    variant === 'secondary' && styles.variant.secondary,
-    disabled && styles.disabled,
+    styles.variant[variant],
+    fullWidth && styles.fullWidth,
+    isDisabled && styles.disabled,
     className,
-  ];
+  );
+
+  // const Component = asChild ? Slot : 'button';
 
   return (
     <button
-      type="button"
-      className={clsx(classes)}
-      disabled={disabled}
+      // type={!asChild ? type : undefined}
+      // disabled={!asChild ? isDisabled : undefined}
+      className={classes}
       {...props}
     >
-      {icon && iconPosition === 'left' && (
+      {showIcon && iconPosition === 'left' && (
         <span className={styles.icon}>{icon}</span>
       )}
-      {children}
-      {icon && iconPosition === 'right' && (
+
+      {loading && <Spinner aria-hidden />}
+
+      <span className={styles.content}>{children}</span>
+
+      {showIcon && iconPosition === 'right' && (
         <span className={styles.icon}>{icon}</span>
       )}
     </button>

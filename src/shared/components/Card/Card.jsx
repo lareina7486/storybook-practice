@@ -85,7 +85,7 @@ export function Card({
               onClick={onEditClick}
               aria-label="더보기 메뉴"
             >
-              <Icon name="meatballs_menu" width={24} height={24} aria-hidden />
+              <Icon name="meatballs_menu" aria-hidden />
             </Button>
           )}
           {title != null && title !== '' && (
@@ -105,23 +105,23 @@ export function Card({
           <div className={styles.metaLeft}>
             {deadlineText && (
               <span className={styles.metaItem}>
-                <Icon name="deadline" width={24} height={24} aria-hidden />
+                <Icon name="deadline" aria-hidden />
                 {deadlineText}
               </span>
             )}
             {personText && (
               <span className={styles.metaItem}>
-                <Icon name="person" width={24} height={24} aria-hidden />
+                <Icon name="person" aria-hidden />
                 {personText}
               </span>
             )}
           </div>
           {showCtaResolved && (
             <Button
-              icon={<Icon height={24} name="arrow_right" width={24} />}
+              variant="outlineIcon"
+              icon={<Icon name="arrow_right" />}
               iconPosition="right"
               status
-              variant="outlineIcon"
             >
               도전 계속하기
             </Button>

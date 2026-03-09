@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { Button } from '@/shared/components/Button';
 import * as styles from './TabTop.css.js';
 
 export function TabTop({ tabs, value, onChange }) {
@@ -13,15 +13,16 @@ export function TabTop({ tabs, value, onChange }) {
 
         return (
           <li key={tabValue} role="presentation">
-            <button
+            <Button
               type="button"
               role="tab"
               aria-selected={isActive}
+              variant="transparent"
               className={styles.item[isActive ? 'active' : 'default']}
               onClick={() => onChange?.(tabValue)}
             >
               {label}
-            </button>
+            </Button>
           </li>
         );
       })}

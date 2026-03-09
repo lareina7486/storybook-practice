@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { Button } from '@/shared/components/Button';
 import * as styles from './Tab.css.js';
 
 export function Tab({ tabs, value, onChange }) {
@@ -13,16 +13,17 @@ export function Tab({ tabs, value, onChange }) {
 
         return (
           <li key={tabValue} role="presentation">
-            <button
+            <Button
               type="button"
               role="tab"
               aria-selected={isActive}
+              variant="transparent"
               className={styles.item[isActive ? 'active' : 'default']}
               onClick={() => onChange?.(tabValue)}
             >
               <span>{label}</span>
               {isActive && <span className={styles.indicator} aria-hidden />}
-            </button>
+            </Button>
           </li>
         );
       })}

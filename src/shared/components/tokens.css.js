@@ -60,7 +60,8 @@ export const vars = createGlobalTheme(':root', {
     md: '8px',
     lg: '12px',
     xl: '16px',
-    '2xl': '30px',
+    '2xl': '19px',
+    '3xl': '30px',
     full: '9999px',
   },
 
